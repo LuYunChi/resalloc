@@ -3,6 +3,7 @@
 import random
 from typing import List, Optional, Tuple
 import matplotlib.pyplot as plt
+from copy import deepcopy
 
 
 class Entry:
@@ -16,9 +17,13 @@ class Entry:
         self.clientname = ""
 
 
-class Cache:
-    def __init__(self, size) -> None:
-        self.cache = [Entry() for _ in range(size)]
+class BaseCache:
+    def __init__(self) -> None:
+        self.name = "BaseCache"
+        self.cache = []
+
+    def register(self, *args, **kwargs) -> None:
+        raise NotImplementedError
 
     def page_in(self, time, entry_id, clientname, key) -> None:
         assert self.cache[entry_id].valid == False
@@ -41,77 +46,136 @@ class Cache:
         self.cache[entry_id].last_used = time
 
     def get_unused_or_lru(self, start, end) -> Tuple[int, bool]:
-        # return entry_id, used
+        """ return entry_id, used """
         lru_time = None
         lru_ptr = None
-        for i in range(start, end+1):
-            e = self.cache[i]
+        for i, e in enumerate(self.cache[start: end+1]):
             if lru_time is None or lru_time > e.last_used:
                 lru_time = e.last_used
-                lru_ptr = i
+                lru_ptr = i + start
             if e.valid == False:
-                return i, False
+                return i + start, False
         return lru_ptr, True
 
-
-class FullShareCache(Cache):
-    def __init__(self, size) -> None:
-        super().__init__(size)
-        self.name = "FullShareCache"
-
     def query(self, time, clientname, key) -> bool:
-        # return True if hit else False
+        """ return True if hit else False """
         eid = self.get_entry_id(clientname, key)
-        if eid is not None:  # cache hit
+        hit = eid is not None
+        if hit:  # cache hit
             self.use(eid, time)
         else:  # cache miss
-            eid_new, used = self.get_unused_or_lru(0, len(self.cache)-1)
+            eid_new, used = self.schedule_pagein_eid(time, clientname)
             if used:
                 self.page_out(eid_new)
             self.page_in(time, eid_new, clientname, key)
-        return eid is not None
+        return hit
+
+    def schedule_pagein_eid(self, time, clientname) -> Tuple[int, bool]:
+        # return entry_id, used
+        raise NotImplementedError
 
 
-class EvenSplitCache(Cache):
-    def __init__(self, size, clientnames) -> None:
-        super().__init__(size)
+class FullShareCache(BaseCache):
+    def __init__(self) -> None:
+        super().__init__()
+        self.name = "FullShareCache"
+
+    def register(self, size, *args, **kwargs) -> None:
+        self.cache = [Entry() for _ in range(size)]
+
+    def schedule_pagein_eid(self, time, clientname) -> Tuple[int, bool]:
+        """ return entry_id, used """
+        return self.get_unused_or_lru(0, len(self.cache)-1)
+
+
+class EvenSplitCache(BaseCache):
+    def __init__(self) -> None:
+        super().__init__()
         self.name = "EvenSplitCache"
 
-        def get_range():
-            share, remain = divmod(size, len(clientnames))
-            d = {}
-            s = 0
-            for i, u in enumerate(clientnames):
-                r = 1 if i < remain else 0
-                e = s+share+r-1
-                d[u] = (s, e)
-                s = e+1
-            return d
-        self.range = get_range()    # clientname -> allocated entries
-        # clientname -> number of used entries
+        self.clientnames = []
+        self.use_cnt = {}  # clientname -> number of used entries
+        self.range = {}  # clientname -> allocated entries
+
+    def register(self, size, clientnames, *args, **kwargs) -> None:
+        self.cache = [Entry() for _ in range(size)]
+        self.clientnames = clientnames
         self.use_cnt = {u: 0 for u in clientnames}
+
+        share, remain = divmod(size, len(clientnames))
+        s = 0
+        for i, u in enumerate(clientnames):
+            r = 1 if i < remain else 0
+            e = s + share + r - 1
+            self.range[u] = (s, e)
+            s = e + 1
 
     def page_in(self, time, entry_id, clientname, key) -> None:
         super().page_in(time, entry_id, clientname, key)
         self.use_cnt[clientname] += 1
 
     def page_out(self, entry_id) -> None:
-        clientname = self.cache[entry_id].clientname
-        self.use_cnt[clientname] -= 1
+        self.use_cnt[self.cache[entry_id].clientname] -= 1
         super().page_out(entry_id)
 
+    def schedule_pagein_eid(self, time, clientname) -> Tuple[int, bool]:
+        """ return entry_id, used """
+        rg = self.range[clientname]
+        return self.get_unused_or_lru(rg[0], rg[1])
+
+
+class AccessTimeFairnessCache(BaseCache):
+    def __init__(self, fairness_ttl) -> None:
+        super().__init__()
+        self.name = f"AccessTimeFairnessCache-fttl={fairness_ttl}"
+        self.fttl = fairness_ttl
+
+        self.clientnames = []
+        self.history = {}  # clientname -> [(time, hit)]
+
+    def register(self, size, clientnames, *args, **kwargs) -> None:
+        self.cache = [Entry() for _ in range(size)]
+        self.clientnames = clientnames
+        self.history = {c: [] for c in clientnames}
+
+    def add_history(self, time, clientname, hit) -> None:
+        self.history[clientname].append((time, hit))
+
+    def prune_history(self, time, clientname) -> None:
+        i = 0
+        while i < len(self.history[clientname]) and self.history[clientname][i][0] < time-self.fttl:
+            i += 1
+        self.history[clientname] = self.history[clientname][i:]
+
+    def schedule_pagein_eid(self, time, clientname) -> Tuple[int, bool]:
+        """ return entry_id, used """
+        def recent_hit_rate(cname):
+            self.prune_history(time, cname)
+            history = self.history[cname]
+            nhit = len([1 for _, hit in history if hit])
+            return nhit / max(1, len(history))
+        hit_rates = [(recent_hit_rate(c), c) for c in self.clientnames]
+        # choose client with highest recent hit rate to be the victim
+        clientname_victim = sorted(hit_rates, reverse=True)[0][1]
+        lru_time = None
+        pagein_eid = None
+        for i, e in enumerate(self.cache):
+            if e.valid == False:  # has unused cache
+                return i, False
+            elif e.clientname != clientname_victim:  # cache used, but not by victim
+                continue
+            else:  # cache used by victim
+                if lru_time is None or lru_time > e.last_used:
+                    lru_time = e.last_used
+                    pagein_eid = i
+        assert pagein_eid is not None
+        return pagein_eid, True
+
     def query(self, time, clientname, key) -> bool:
-        # return True if hit else False
-        eid = self.get_entry_id(clientname, key)
-        if eid is not None:  # cache hit
-            self.use(eid, time)
-        else:  # cache miss
-            rg = self.range[clientname]
-            eid_new, used = self.get_unused_or_lru(rg[0], rg[1])
-            if used:
-                self.page_out(eid_new)
-            self.page_in(time, eid_new, clientname, key)
-        return eid is not None
+        """ return True if hit else False """
+        hit = super().query(time, clientname, key)
+        self.add_history(time, clientname, hit)
+        return hit
 
 
 class Client:
@@ -134,13 +198,15 @@ MISS_TIME = 10
 class Log:
     def __init__(self) -> None:
         self.log = {}
-        self.clientnames = set()
-        self.cachenames = set()
+        self.clientnames = []
+        self.cachenames = []
         self.maxtime = 0
 
     def add(self, time, clientname, hit, cachename):
-        self.clientnames.add(clientname)
-        self.cachenames.add(cachename)
+        if clientname not in self.clientnames:
+            self.clientnames.append(clientname)
+        if cachename not in self.cachenames:
+            self.cachenames.append(cachename)
         self.maxtime = max(self.maxtime, time)
 
         if clientname not in self.log:
@@ -149,7 +215,7 @@ class Log:
             self.log[clientname][cachename] = []
         self.log[clientname][cachename].append((time, hit))
 
-    def get_avg_access_time_trace(self, clientname, cachename) -> List[float]:
+    def get_full_avg_acctime_trace(self, clientname, cachename) -> List[float]:
         hits = [0] * (self.maxtime+1)
         qrys = [0] * (self.maxtime+1)
         for t, h in self.log[clientname][cachename]:
@@ -172,13 +238,13 @@ class Log:
         x_axis = [i for i in range(self.maxtime+1)]
 
         _, axes = plt.subplots(1, num_plots, figsize=(
-            10, 3), sharex=True, sharey=True)
+            4*num_plots, 3), sharex=True, sharey=True)
 
         # Plot each graph in a separate subplot
-        for graph_id, cachename in enumerate(self.cachenames):
+        for graph_id, cachename in enumerate(sorted(self.cachenames)):
             ax = axes[graph_id]
             for clientname in self.clientnames:
-                data = self.get_avg_access_time_trace(clientname, cachename)
+                data = self.get_full_avg_acctime_trace(clientname, cachename)
                 assert len(data) == len(x_axis)
                 ax.plot(x_axis, data, label=clientname)
             ax.set_title(cachename)
@@ -189,28 +255,37 @@ class Log:
         plt.show()
 
 
-def main(cache_size, clients: List[Client], iterations):
+def main(caches: List[BaseCache], cache_size: int,  clients: List[Client], iterations: int):
+    caches = [deepcopy(c) for c in caches]  # enusre experiment isolation
     clientnames = [u.name for u in clients]
-    even_split_cache = EvenSplitCache(cache_size, clientnames)
-    full_share_cache = FullShareCache(cache_size)
+    for cache in caches:
+        cache.register(
+            size=cache_size,
+            clientnames=clientnames)
 
     log = Log()
     for time in range(iterations):
         for client in clients:
             if client.should_query(time):
                 key = client.gen_key()
-                for cache in [even_split_cache, full_share_cache]:
+                for cache in caches:
                     hit = cache.query(time, client.name, key)
                     log.add(time, client.name, hit, cache.name)
     log.draw_avg_access_time()
 
 
 if __name__ == "__main__":
+    iterations = 1000
+    caches = [
+        FullShareCache(),
+        EvenSplitCache(),
+        AccessTimeFairnessCache(fairness_ttl=20),
+        AccessTimeFairnessCache(fairness_ttl=50),
+    ]
     cache_size = 100
     clients = {
-        Client("u1", 70, 2),
-        Client("u2", 70, 4),
-        # Client("u3", 500, 2),
+        Client("u1", 50, 1),
+        Client("u2", 50, 1),
+        Client("u3", 50, 1),
     }
-    iterations = 1000
-    main(cache_size, clients, iterations)
+    main(caches, cache_size, clients, iterations)
