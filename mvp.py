@@ -182,16 +182,22 @@ class AccessTimeFairnessCache(BaseCache):
 
 
 class Client:
-    def __init__(self, name, max_query_key, query_interval) -> None:
+    def __init__(self, name, max_query_key, query_interval, stddev=None) -> None:
         self.name = name
         self.q_max_key = max_query_key
         self.q_itv = query_interval
+        self.stddev = stddev
 
     def should_query(self, time) -> bool:
         return time % self.q_itv == 0
 
     def gen_key(self) -> int:
-        return random.randint(1, self.q_max_key)
+        if self.stddev is None:  # use uniform random
+            return random.randint(1, self.q_max_key)
+        else:  # use gussian random
+            r = int(random.gauss(self.q_max_key / 2, self.stddev))
+            r = max(1, min(self.q_max_key, r))
+            return r
 
 
 HIT_TIME = 1
@@ -320,5 +326,13 @@ if __name__ == "__main__":
         Client("u1", 40, 1),
         Client("u2", 80, 2),
         Client("u3", 200, 5),
+    }
+    clients = {
+        Client("u1", 100, 1, stddev=10),
+        Client("u2", 100, 1, stddev=80),
+    }
+    clients = {
+        Client("u1", 200, 1, stddev=10),
+        Client("u2", 200, 1, stddev=80),
     }
     main(caches, cache_size, clients, iterations)
