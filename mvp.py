@@ -156,19 +156,22 @@ class AccessTimeFairnessCache(BaseCache):
             return nhit / max(1, len(history))
         hit_rates = [(recent_hit_rate(c), c) for c in self.clientnames]
         # choose client with highest recent hit rate to be the victim
-        clientname_victim = sorted(hit_rates, reverse=True)[0][1]
+        clientname_victims = [c for _, c in sorted(hit_rates, reverse=True)]
         lru_time = None
         pagein_eid = None
-        for i, e in enumerate(self.cache):
-            if e.valid == False:  # has unused cache
-                return i, False
-            elif e.clientname != clientname_victim:  # cache used, but not by victim
-                continue
-            else:  # cache used by victim
-                if lru_time is None or lru_time > e.last_used:
-                    lru_time = e.last_used
-                    pagein_eid = i
-        assert pagein_eid is not None
+        for clientname_victim in clientname_victims:
+            for i, e in enumerate(self.cache):
+                if e.valid == False:  # has unused cache
+                    return i, False
+                elif e.clientname != clientname_victim:  # cache used, but not by victim
+                    continue
+                else:  # cache used by victim
+                    if lru_time is None or lru_time > e.last_used:
+                        lru_time = e.last_used
+                        pagein_eid = i
+            if pagein_eid is not None:
+                break
+        assert pagein_eid is not None, hit_rates
         return pagein_eid, True
 
     def query(self, time, clientname, key) -> bool:
@@ -241,9 +244,9 @@ class Log:
             4*num_plots, 3), sharex=True, sharey=True)
 
         # Plot each graph in a separate subplot
-        for graph_id, cachename in enumerate(sorted(self.cachenames)):
+        for graph_id, cachename in enumerate(self.cachenames):
             ax = axes[graph_id]
-            for clientname in self.clientnames:
+            for clientname in sorted(self.clientnames):
                 data = self.get_full_avg_acctime_trace(clientname, cachename)
                 assert len(data) == len(x_axis)
                 ax.plot(x_axis, data, label=clientname)
@@ -280,12 +283,42 @@ if __name__ == "__main__":
         FullShareCache(),
         EvenSplitCache(),
         AccessTimeFairnessCache(fairness_ttl=20),
-        AccessTimeFairnessCache(fairness_ttl=50),
+        AccessTimeFairnessCache(fairness_ttl=100),
     ]
     cache_size = 100
     clients = {
         Client("u1", 50, 1),
         Client("u2", 50, 1),
         Client("u3", 50, 1),
+    }
+    clients = {
+        Client("u1", 50, 1),
+        Client("u2", 50, 2),
+        Client("u3", 50, 5),
+    }
+    clients = {
+        Client("u1", 20, 1),
+        Client("u2", 30, 1),
+        Client("u3", 100, 1),
+    }
+    clients = {
+        Client("u1", 20, 1),
+        Client("u2", 30, 2),
+        Client("u3", 100, 5),
+    }
+    clients = {
+        Client("u1", 20, 5),
+        Client("u2", 30, 2),
+        Client("u3", 100, 1),
+    }
+    clients = {
+        Client("u1", 40, 1),
+        Client("u2", 80, 1),
+        Client("u3", 200, 1),
+    }
+    clients = {
+        Client("u1", 40, 1),
+        Client("u2", 80, 2),
+        Client("u3", 200, 5),
     }
     main(caches, cache_size, clients, iterations)
