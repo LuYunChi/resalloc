@@ -111,8 +111,8 @@ class EvenSplitCache(BaseCache):
             s = e + 1
 
     def page_in(self, time, entry_id, clientname, key) -> None:
-        super().page_in(time, entry_id, clientname, key)
         self.use_cnt[clientname] += 1
+        super().page_in(time, entry_id, clientname, key)
 
     def page_out(self, entry_id) -> None:
         self.use_cnt[self.cache[entry_id].clientname] -= 1
@@ -124,10 +124,48 @@ class EvenSplitCache(BaseCache):
         return self.get_unused_or_lru(rg[0], rg[1])
 
 
-class AccessTimeFairnessCache(BaseCache):
+class MaxMinFairCache(BaseCache):
+    def __init__(self) -> None:
+        super().__init__()
+        self.name = "MaxMinFairCache"
+
+        self.clientnames = []
+        self.use_cnt = {}  # clientname -> number of used entries
+
+    def register(self, size, clientnames, *args, **kwargs) -> None:
+        self.cache = [Entry() for _ in range(size)]
+        self.clientnames = clientnames
+        self.use_cnt = {u: 0 for u in clientnames}
+
+    def page_in(self, time, entry_id, clientname, key) -> None:
+        self.use_cnt[clientname] += 1
+        super().page_in(time, entry_id, clientname, key)
+
+    def page_out(self, entry_id) -> None:
+        self.use_cnt[self.cache[entry_id].clientname] -= 1
+        super().page_out(entry_id)
+
+    def schedule_pagein_eid(self, time, clientname) -> Tuple[int, bool]:
+        """ return entry_id, used """
+        clientname_victim = sorted(
+            self.use_cnt.items(), key=lambda x: x[1], reverse=True)[0][0]
+        lru_time = None
+        pagein_eid = None
+        for i, e in enumerate(self.cache):
+            if e.valid == False:  # has unused cache
+                return i, False
+            elif e.clientname == clientname_victim:  # cache used by victim
+                if lru_time is None or lru_time > e.last_used:
+                    lru_time = e.last_used
+                    pagein_eid = i
+        assert pagein_eid is not None
+        return pagein_eid, True
+
+
+class HitRateFairCache(BaseCache):
     def __init__(self, fairness_ttl) -> None:
         super().__init__()
-        self.name = f"AccessTimeFairnessCache-fttl={fairness_ttl}"
+        self.name = f"HitRateFairCache-fttl={fairness_ttl}"
         self.fttl = fairness_ttl
 
         self.clientnames = []
@@ -163,9 +201,7 @@ class AccessTimeFairnessCache(BaseCache):
             for i, e in enumerate(self.cache):
                 if e.valid == False:  # has unused cache
                     return i, False
-                elif e.clientname != clientname_victim:  # cache used, but not by victim
-                    continue
-                else:  # cache used by victim
+                elif e.clientname == clientname_victim:  # cache used by victim
                     if lru_time is None or lru_time > e.last_used:
                         lru_time = e.last_used
                         pagein_eid = i
@@ -288,8 +324,9 @@ if __name__ == "__main__":
     caches = [
         FullShareCache(),
         EvenSplitCache(),
-        AccessTimeFairnessCache(fairness_ttl=20),
-        AccessTimeFairnessCache(fairness_ttl=100),
+        MaxMinFairCache(),
+        HitRateFairCache(fairness_ttl=20),
+        # HitRateFairCache(fairness_ttl=100),
     ]
     cache_size = 100
     clients = {
@@ -317,22 +354,30 @@ if __name__ == "__main__":
         Client("u2", 30, 2),
         Client("u3", 100, 1),
     }
-    clients = {
-        Client("u1", 40, 1),
-        Client("u2", 80, 1),
-        Client("u3", 200, 1),
-    }
-    clients = {
-        Client("u1", 40, 1),
-        Client("u2", 80, 2),
-        Client("u3", 200, 5),
-    }
-    clients = {
-        Client("u1", 100, 1, stddev=10),
-        Client("u2", 100, 1, stddev=80),
-    }
-    clients = {
-        Client("u1", 200, 1, stddev=10),
-        Client("u2", 200, 1, stddev=80),
-    }
+    # clients = {
+    #     Client("u1", 40, 1),
+    #     Client("u2", 80, 1),
+    #     Client("u3", 200, 1),
+    # }
+    # clients = {
+    #     Client("u1", 40, 1),
+    #     Client("u2", 80, 2),
+    #     Client("u3", 200, 5),
+    # }
+    # clients = {
+    #     Client("u1", 100, 1, stddev=10),
+    #     Client("u2", 100, 1, stddev=80),
+    # }
+    # clients = {
+    #     Client("u1", 200, 1, stddev=10),
+    #     Client("u2", 200, 1, stddev=80),
+    # }
+    # clients = {
+    #     Client("u1", 40, 1),
+    #     Client("u2", 1000, 1),
+    # }
+    # clients = {
+    #     Client("u1", 100, 2),
+    #     Client("u2", 100, 1),
+    # }
     main(caches, cache_size, clients, iterations)
