@@ -238,6 +238,7 @@ class Client:
 
 HIT_TIME = 1
 MISS_TIME = 10
+LOG_WINDOW = 500
 
 
 class Log:
@@ -267,14 +268,13 @@ class Log:
             qrys[t] = 1
             hits[t] = 1 if h else 0
 
-        num_hits = 0
-        num_qrys = 0
         trace = []
         for t in range(self.maxtime+1):
-            num_hits += hits[t]
-            num_qrys += qrys[t]
-            num_misses = num_qrys - num_hits
-            avg = (num_hits * HIT_TIME + num_misses * MISS_TIME) / num_qrys
+            roi_hits = sum(hits[max(0, t+1-LOG_WINDOW):t+1])
+            roi_qs = sum(qrys[max(0, t+1-LOG_WINDOW):t+1])
+            roi_misses = roi_qs - roi_hits
+            avg = (roi_hits * HIT_TIME + roi_misses * MISS_TIME) / roi_qs
+            avg = roi_hits / roi_qs
             trace.append(avg)
         return trace
 
@@ -320,7 +320,7 @@ def main(caches: List[BaseCache], cache_size: int,  clients: List[Client], itera
 
 
 if __name__ == "__main__":
-    iterations = 1000
+    iterations = 5000
     caches = [
         FullShareCache(),
         EvenSplitCache(),
@@ -337,23 +337,23 @@ if __name__ == "__main__":
     clients = {
         Client("u1", 50, 1),
         Client("u2", 50, 2),
-        Client("u3", 50, 5),
+        Client("u3", 50, 10),
     }
-    clients = {
-        Client("u1", 20, 1),
-        Client("u2", 30, 1),
-        Client("u3", 100, 1),
-    }
-    clients = {
-        Client("u1", 20, 1),
-        Client("u2", 30, 2),
-        Client("u3", 100, 5),
-    }
-    clients = {
-        Client("u1", 20, 5),
-        Client("u2", 30, 2),
-        Client("u3", 100, 1),
-    }
+    # clients = {
+    #     Client("u1", 20, 1),
+    #     Client("u2", 30, 1),
+    #     Client("u3", 100, 1),
+    # }
+    # clients = {
+    #     Client("u1", 20, 1),
+    #     Client("u2", 30, 2),
+    #     Client("u3", 100, 5),
+    # }
+    # clients = {
+    #     Client("u1", 20, 5),
+    #     Client("u2", 30, 2),
+    #     Client("u3", 100, 1),
+    # }
     # clients = {
     #     Client("u1", 40, 1),
     #     Client("u2", 80, 1),
@@ -380,4 +380,8 @@ if __name__ == "__main__":
     #     Client("u1", 100, 2),
     #     Client("u2", 100, 1),
     # }
+    clients = {
+        Client("u1", 80, 10),
+        Client("u2", 80, 1),
+    }
     main(caches, cache_size, clients, iterations)
