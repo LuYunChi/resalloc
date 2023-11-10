@@ -12,18 +12,18 @@ class CacheClient:
     def reset(self):
         self.redis.flushdb()
 
-    def get(self, tntid, key) -> bool:
+    def key_in_cache(self, tntid, key) -> bool:
         wk = self.wrap_key(tntid, key)
         result = self.redis.get(wk) is not None
         self.allocator.inform_get(tntid, wk, result)
         return result
 
-    def set(self, tntid, key) -> None:
+    def write(self, tntid, key, val) -> None:
         wk = self.wrap_key(tntid, key)
         evict_key = self.allocator.inform_set(tntid, wk)
         if evict_key is not None:
             self.redis.delete(evict_key)
-        self.redis.set(wk, "default_value")
+        self.redis.set(wk, val)
 
     def wrap_key(self, tntid, key) -> str:
         return f"{tntid}:{key}"
