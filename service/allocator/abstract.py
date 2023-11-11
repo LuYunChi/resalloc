@@ -9,11 +9,11 @@ class Allocator:
 
     def key_in_cache(self, tntid, key) -> bool:
         """ return whether key is in cache """
-        pass
+        raise NotImplementedError
 
     def cache_isfull(self) -> bool:
         """ return whether cache is full """
-        pass
+        raise NotImplementedError
 
     def inform_use(self, tntid, key) -> None:
         """ called when a key is read or updated; only update last use ts """
