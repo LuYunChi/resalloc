@@ -1,5 +1,5 @@
+from typing import Tuple
 from service.scheme import CacheScheme
-from typing import Optional
 
 
 class Allocator:
@@ -7,9 +7,22 @@ class Allocator:
         self.name = "AbstractAllocator"
         self.scheme = scheme
 
-    def inform_get(self, tntid, key, result) -> None:
+    def key_in_cache(self, tntid, key) -> bool:
+        """ return whether key is in cache """
+        pass
+
+    def cache_isfull(self) -> bool:
+        """ return whether cache is full """
+        pass
+
+    def inform_use(self, tntid, key) -> None:
+        """ called when a key is read or updated; only update last use ts """
         raise NotImplementedError
 
-    def inform_set(self, tntid, key) -> Optional[str]:
-        """ return None if no need to evict, else return evict key """
+    def inform_set(self, tntid, key) -> None:
+        """ called when a new key is brought into cache """
+        raise NotImplementedError
+
+    def arbit_evict(self, tntid, key) -> Tuple[str, str]:
+        """ called when a new key should be brought in and cache is full """
         raise NotImplementedError

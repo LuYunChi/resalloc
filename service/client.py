@@ -12,18 +12,36 @@ class CacheClient:
     def reset(self):
         self.redis.flushdb()
 
-    def key_in_cache(self, tntid, key) -> bool:
-        wk = self.wrap_key(tntid, key)
-        result = self.redis.get(wk) is not None
-        self.allocator.inform_get(tntid, wk, result)
-        return result
+    def handle(self, tntid, key, val) -> bool:
+        """ handle READ if val is None, else handle WRITE; return hit """
+        hit = self.allocator.key_in_cache(tntid, key)
+        isread = val is None
+        if hit:
+            if isread:
+                self.allocator.inform_use(tntid, key)
+                self._read_redis(tntid, key)
+            else:
+                self.allocator.inform_use(tntid, key)
+                self._write_redis(tntid, key, val)
+        else:
+            if self.allocator.cache_isfull():
+                evict_tntid, evict_key = self.allocator.arbit_evict(tntid, key)
+                self._evict_redis(evict_tntid, evict_key)
+            self.allocator.inform_set(tntid, key)
+            self._write_redis(tntid, key, val)
+        return hit
 
-    def write(self, tntid, key, val) -> None:
+    def _read_redis(self, tntid, key) -> None:
         wk = self.wrap_key(tntid, key)
-        evict_key = self.allocator.inform_set(tntid, wk)
-        if evict_key is not None:
-            self.redis.delete(evict_key)
+        self.redis.get(wk)
+
+    def _write_redis(self, tntid, key, val) -> None:
+        wk = self.wrap_key(tntid, key)
         self.redis.set(wk, val)
 
-    def wrap_key(self, tntid, key) -> str:
+    def _evict_redis(self, tntid, key) -> None:
+        wk = self.wrap_key(tntid, key)
+        self.redis.delete(wk)
+
+    def _wrap_key(self, tntid, key) -> str:
         return f"{tntid}:{key}"

@@ -21,19 +21,15 @@ class CacheServer:
     def request(self, tntid, key, write=False) -> Tuple[bool, float]:
         """ default write=False meaning GET request,
         return true if direct hit, false if fetching from backing store """
-        hit = self.cache_client.key_in_cache(tntid, key)
-        additional_latency = 0
-        if not hit:
-            additional_latency = self._fetch(key)
-            self.cache_client.write(tntid, key, self._genval())
-        elif write:
-            self.cache_client.write(tntid, key, self._genval())
+        val = self._genval() if write else None
+        hit = self.cache_client.handle(tntid, key, val)
+        additional_latency = 0 if hit else self._fetch(key)
         return hit, additional_latency
 
-    def _fetch(self, key) -> float:
+    def _fetch(self, _) -> float:
         """ return simulated latency of fetching data from backing store """
-        return max(0, random.gauss(self.backingstore_scheme.latency_mu,
-                                   self.backingstore_scheme.latency_sigma))
+        return max(0.2, random.gauss(self.backingstore_scheme.latency_mu,
+                                     self.backingstore_scheme.latency_sigma))
 
     def _genval(self, byte_size=1024) -> str:
         random_bytes = os.urandom(byte_size)
