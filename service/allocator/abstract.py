@@ -1,4 +1,5 @@
 from typing import Tuple
+
 from service.scheme import CacheScheme
 
 
@@ -6,6 +7,14 @@ class Allocator:
     def __init__(self, scheme: CacheScheme) -> None:
         self.name = "AbstractAllocator"
         self.scheme = scheme
+
+    @property
+    def num_tnts(self) -> int:
+        return self.scheme.num_tenants
+
+    @property
+    def cache_size(self) -> int:
+        return self.scheme.cache_size
 
     def key_in_cache(self, tntid, key) -> bool:
         """ return whether key is in cache """
