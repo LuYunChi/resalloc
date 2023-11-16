@@ -1,4 +1,4 @@
-ts,key,val_size,tenant_id,op,ttl
+ts,key,val_size,tntid,op,ttl
 0,q:q:1:8WTPlsKW3ee,271,3,get,0
 0,yDqF:vq:1AJrJGnCJ19J911JG1G,27,2,get,0
 0,yDqF:vq:1AJrrr1xnK1J19G199J,27,1,set,86400

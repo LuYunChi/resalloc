@@ -21,6 +21,8 @@ class GlobalLRU(Allocator):
         self.cache_cnt = 0
         self.head = CacheObject(None, None)
         self.tail = CacheObject(None, None)
+        self.head.next = self.tail
+        self.tail.pre = self.head
 
     def _get_ptr(self, tntid, key) -> CacheObject:
         ptr: CacheObject = self.head

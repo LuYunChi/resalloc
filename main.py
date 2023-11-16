@@ -7,6 +7,7 @@ from typing import List, Dict, Tuple
 from tenant.tenant import Tenant
 from service.server import CacheServer
 from service.scheme import CacheScheme, BackingStoreScheme
+from service.allocator.lru import GlobalLRU
 
 
 def parse_tenants(df) -> List[Tenant]:
@@ -43,7 +44,7 @@ def main(trace_file: str, cache_scheme: CacheScheme, backingstore_scheme: Backin
     for t in threads:
         t.join()
     for tnt in tenants:
-        dst = f"{get_trace_name(trace_file)}_{svr.cache_client.allocator.name}_{tnt.tntid}.csv"
+        dst = f"{get_trace_name(trace_file)}_{svr.cache_client.allocator.name}_t{tnt.tntid}.json"
         tnt.dump_result(dst)
 
 
@@ -52,16 +53,16 @@ def get_trace_name(trace_file: str) -> str:
 
 
 if __name__ == "__main__":
-    trace_file = ""
-    num_tenants = 0
-    cache_size = 0
-    latency_mu = 0
-    latency_sigma = 0
+    trace_file = "/home/yunchi/582/resalloc/data/memcached/dummy_q100_d20_t4.csv"
+    num_tenants = 4
+    cache_size = 100
+    latency_mu = 1
+    latency_sigma = 1
 
     cscheme = CacheScheme(
         cache_size=cache_size,
         num_tenants=num_tenants,
-        allocator_class=None)
+        allocator_class=GlobalLRU)
     bscheme = BackingStoreScheme(
         latency_mu=latency_mu,
         latency_sigma=latency_sigma)

@@ -28,7 +28,7 @@ for i in range(len(df)):
     df.loc[i, "ts"] = int(random.uniform(0, time_span))
     df.loc[i, "op"] = "get" if df.loc[i, "op"] in ["get", "gets"] else "set"
 
-df.rename(columns={'client_id': 'tenant_id'}, inplace=True)
+df.rename(columns={'client_id': 'tntid'}, inplace=True)
 df.sort_values(by="ts", inplace=True)
 df.reset_index(inplace=True, drop=True)
 

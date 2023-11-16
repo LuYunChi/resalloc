@@ -1,4 +1,5 @@
 import time
+import json
 import pandas as pd
 from typing import List
 
@@ -24,7 +25,7 @@ class Tenant:
             if t >= self.time_series[i] and t >= last_finish:
                 hit, add_latency = cache_svr.request(self.tntid,
                                                      self.query_keys[i])
-                last_finish = time.time() + add_latency
+                last_finish = time.time() - t0 + add_latency
 
                 self.log_issue.append(t)
                 self.log_finish.append(last_finish)
@@ -38,4 +39,5 @@ class Tenant:
             "finish_ts": self.log_finish,
             "hit": self.log_hit
         }
-        pd.DataFrame(data).to_csv(data, index=False)
+        with open(dst, "w") as fp:
+            json.dump(data, fp, indent=4)

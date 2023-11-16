@@ -32,15 +32,15 @@ class CacheClient:
         return hit
 
     def _read_redis(self, tntid, key) -> None:
-        wk = self.wrap_key(tntid, key)
+        wk = self._wrap_key(tntid, key)
         self.redis.get(wk)
 
     def _write_redis(self, tntid, key, val) -> None:
-        wk = self.wrap_key(tntid, key)
+        wk = self._wrap_key(tntid, key)
         self.redis.set(wk, val)
 
     def _evict_redis(self, tntid, key) -> None:
-        wk = self.wrap_key(tntid, key)
+        wk = self._wrap_key(tntid, key)
         self.redis.delete(wk)
 
     def _wrap_key(self, tntid, key) -> str:
