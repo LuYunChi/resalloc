@@ -7,10 +7,13 @@ from service.server import CacheServer
 
 
 class Tenant:
-    def __init__(self, tntid, time_series, query_keys) -> None:
+    def __init__(self, tntid, time_series, query_keys, val_sizes, ops, ttls) -> None:
         self.tntid = tntid
         self.time_series: List[float] = time_series
         self.query_keys: List[str] = query_keys
+        self.val_sizes: List[int] = val_sizes
+        self.ops: List[str] = ops
+        self.ttls: List[int] = ttls
 
         self.log_issue: List[float] = []
         self.log_finish: List[float] = []
@@ -23,8 +26,13 @@ class Tenant:
         while i < len(self.time_series):
             t = time.time() - t0
             if t >= self.time_series[i] and t >= last_finish:
-                hit, add_latency = cache_svr.request(self.tntid,
-                                                     self.query_keys[i])
+                print(f"tenant {self.tntid}: {i+1}/{len(self.query_keys)}")
+                hit, add_latency = cache_svr.request(tntid=self.tntid,
+                                                     key=self.query_keys[i],
+                                                     iswrite=self.ops[i] != "get",
+                                                     val_size=self.val_sizes[i],
+                                                     ttl=self.ttls[i]
+                                                     )
                 last_finish = time.time() - t0 + add_latency
 
                 self.log_issue.append(t)
@@ -32,12 +40,12 @@ class Tenant:
                 self.log_hit.append(hit)
                 i += 1
 
-    def dump_result(self, dst: str) -> None:
+    def dump_result(self):
         data = {
+            "tntid": [self.tntid] * len(self.time_series),
             "original_ts": self.time_series,
             "issue_ts": self.log_issue,
             "finish_ts": self.log_finish,
-            "hit": self.log_hit
+            "hit": self.log_hit,
         }
-        with open(dst, "w") as fp:
-            json.dump(data, fp, indent=4)
+        return pd.DataFrame(data)

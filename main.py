@@ -16,23 +16,28 @@ def parse_tenants(df) -> List[Tenant]:
         ts = row["ts"]
         tntid = row["tntid"]
         key = row["key"]
+        val_size = row["val_size"]
+        op = row["op"]
+        ttl = row["ttl"]
         if tntid not in tenant_queries:
             tenant_queries[tntid] = []
-        tenant_queries[tntid].append((ts, key))
+        tenant_queries[tntid].append((ts, key, val_size, op, ttl))
 
     tenants: List[Tenant] = []
     for tntid in tenant_queries:
         queries = sorted(tenant_queries[tntid], key=lambda x: x[0])
         tss = [q[0] for q in queries]
         keys = [q[1] for q in queries]
-        tnt = Tenant(tntid=tntid, time_series=tss, query_keys=keys)
+        val_sizes = [q[2] for q in queries]
+        ops = [q[3] for q in queries]
+        ttls = [q[4] for q in queries]
+        tnt = Tenant(tntid=tntid, time_series=tss, query_keys=keys,
+                     val_sizes=val_sizes, ops=ops, ttls=ttls)
         tenants.append(tnt)
     return tenants
 
 
-def main(trace_file: str, cache_scheme: CacheScheme, backingstore_scheme: BackingStoreScheme):
-    df = pd.read_csv(trace_file)
-    tenants: List[Tenant] = parse_tenants(df)
+def main(tenants: List[Tenant], cache_scheme: CacheScheme, backingstore_scheme: BackingStoreScheme):
     svr = CacheServer(cache_scheme=cache_scheme,
                       backingstore_scheme=backingstore_scheme)
     threads = []
@@ -43,27 +48,44 @@ def main(trace_file: str, cache_scheme: CacheScheme, backingstore_scheme: Backin
         threads.append(t)
     for t in threads:
         t.join()
+    df = None
     for tnt in tenants:
-        dst = f"{get_trace_name(trace_file)}_{svr.cache_client.allocator.name}_t{tnt.tntid}.json"
-        tnt.dump_result(dst)
+        tnt_df = tnt.dump_result()
+        if df is None:
+            df = tnt_df
+        else:
+            df = pd.concat([df, tnt_df], ignore_index=True)
+
+    dst = f"results/{get_trace_name(trace_file)}_{svr.cache_client.allocator.name}_t{tnt.tntid}.csv"
+    df.to_csv(dst, index=False)
 
 
 def get_trace_name(trace_file: str) -> str:
     return os.path.splitext(os.path.basename(trace_file))[0]
 
 
+def setup_cache_size(trace_df, cache_ratio) -> int:
+    num_keys = len(set(trace_df["key"]))
+    cache_size = int(num_keys * cache_ratio)
+    print("cache size:", cache_size)
+    return cache_size
+
+
 if __name__ == "__main__":
-    trace_file = "/home/yunchi/582/resalloc/data/memcached/dummy_q100_d20_t4.csv"
-    num_tenants = 4
-    cache_size = 100
+    trace_file = "/home/yunchi/582/resalloc/data/memcached/dummy_q100_d10_t3.csv"
     latency_mu = 1
     latency_sigma = 1
+    cache_ratio = 0.5
+    allocator_class = GlobalLRU
+
+    trace_df = pd.read_csv(trace_file)
+    tenants = parse_tenants(trace_df)
 
     cscheme = CacheScheme(
-        cache_size=cache_size,
-        num_tenants=num_tenants,
-        allocator_class=GlobalLRU)
+        cache_size=setup_cache_size(trace_df, cache_ratio),
+        num_tenants=len(tenants),
+        allocator_class=allocator_class)
     bscheme = BackingStoreScheme(
         latency_mu=latency_mu,
         latency_sigma=latency_sigma)
-    main(trace_file, cscheme, bscheme)
+    main(tenants, cscheme, bscheme)

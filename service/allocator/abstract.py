@@ -28,7 +28,7 @@ class Allocator:
         """ called when a key is read or updated; only update last use ts """
         raise NotImplementedError("inform_use")
 
-    def inform_set(self, tntid, key) -> None:
+    def inform_set(self, tntid, key, ttl) -> None:
         """ called when a new key is brought into cache """
         raise NotImplementedError("inform_set")
 

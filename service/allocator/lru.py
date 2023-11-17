@@ -54,9 +54,9 @@ class GlobalLRU(Allocator):
         ptr.next.pre = ptr.pre
         self._insert_front(ptr)
 
-    def inform_set(self, tntid, key) -> None:
+    def inform_set(self, tntid, key, ttl) -> None:
         """ called when a new key is brought into cache """
-        assert self.cache_cnt < self.cache_size
+        assert self.cache_cnt < self.cache_size, f"{self.cache_cnt, self.cache_size}"
         self.cache_cnt += 1
         co = CacheObject(tntid, key)
         self._insert_front(co)
