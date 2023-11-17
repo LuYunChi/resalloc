@@ -2,11 +2,12 @@ import random
 import pandas as pd
 
 sample_trace = "memcached-sample"
-num_tenants = 4
-time_span = 20
+max_numq = 100
+time_span = 10
+num_tenants = 3
 
 
-df = pd.read_csv(sample_trace, nrows=100,
+df = pd.read_csv(sample_trace, nrows=max_numq,
                  names=["ts", "key", "key_size", "val_size", "client_id", "op", "ttl"])
 df.drop("key_size", axis=1, inplace=True)
 df.sort_values(by="client_id", inplace=True)
