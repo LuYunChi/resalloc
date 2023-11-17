@@ -2,8 +2,8 @@ import random
 import pandas as pd
 
 sample_trace = "memcached-sample"
-max_numq = 100
-time_span = 10
+max_numq = 5000
+time_span = 60
 num_tenants = 3
 
 

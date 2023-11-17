@@ -72,10 +72,10 @@ def setup_cache_size(trace_df, cache_ratio) -> int:
 
 
 if __name__ == "__main__":
-    trace_file = "/home/yunchi/582/resalloc/data/memcached/dummy_q100_d10_t3.csv"
+    trace_file = "/home/yunchi/582/resalloc/data/memcached/dummy_q5000_d60_t3.csv"
     latency_mu = 1
-    latency_sigma = 1
-    cache_ratio = 0.5
+    latency_sigma = 0
+    cache_ratio = 1
     allocator_class = GlobalLRU
 
     trace_df = pd.read_csv(trace_file)
