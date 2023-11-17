@@ -25,7 +25,8 @@ class Tenant:
         i = 0
         while i < len(self.time_series):
             t = time.time() - t0
-            if t >= self.time_series[i] and t >= last_finish:
+            # if t >= self.time_series[i] and t >= last_finish:
+            if t >= self.time_series[i]:
                 print(f"tenant {self.tntid}: {i+1}/{len(self.query_keys)}")
                 hit, add_latency = cache_svr.request(tntid=self.tntid,
                                                      key=self.query_keys[i],
