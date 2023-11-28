@@ -44,7 +44,7 @@ def create_json_file(operation_counts, total_unique_get_counts, unique_get_count
         'unique_get_counts': unique_get_counts
     }
 
-    filename = f'operation_counts_tenant{tenant_num}_time{start_time}-{end_time}.json'
+    filename = f'data/memcached/trace/operation_counts_tenant{tenant_num}_time{start_time}-{end_time}.json'
 
     with open(filename, 'w') as json_file:
         json.dump(result, json_file, indent=2)
@@ -73,7 +73,7 @@ def select_data(data, start_time, end_time, num_tenants):
 # Example usage:
 if __name__ == "__main__":
     # Replace 'your_data.zst' with the actual path to your zst data file
-    with open('cluster01.000.zst', 'rb') as f:
+    with open('data/memcached/cluster01.000.zst', 'rb') as f:
         dctx = zstd.ZstdDecompressor()
         compressed_data = f.read()
         decompressed_data = dctx.decompress(compressed_data)
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
     # Set the time duration (replace 0 and 1 with your desired start and end times)
     start_time = 0
-    end_time = 900
+    end_time = 1
 
     # Set the number of tenants to randomly select
     num_tenants = 5
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     selected_data, selected_tenants = select_data(data, start_time, end_time, num_tenants)
 
     # Save the selected data to a CSV file with modified file name
-    selected_data_filename = f'selected_data_tenant{num_tenants}_time{start_time}-{end_time}.csv'
+    selected_data_filename = f'data/memcached/trace/selected_data_tenant{num_tenants}_time{start_time}-{end_time}.csv'
     selected_data.to_csv(selected_data_filename, index=False)
 
     # Display the selected data with modified column names
