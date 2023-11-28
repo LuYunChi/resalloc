@@ -1,0 +1,1168 @@
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+        ts                                                key  ...   op  ttl
+104992  10  z44uy84y44444U4_18iF44i444444sgP-i84u84444nF44...  ...  get    0
+105619  10  z44uy84y444444bQPMOF44i444444sFGG884u84444nF44...  ...  get    0
+106052  10               z44uy84G444444br5AiK4464444ygGV444==  ...  get    0
+106655  10       z44uy84yzYqzm6YVS44K4464444yiONn4yi4444y444=  ...  get    0
+108132  10       z44uy84yzoFhbL1Wi4Gn44M4444yyo4F44444CHu444=  ...  get    0
+109276  10  z44uy84y44444u_Fgg7F44i444444lQBb484u84444GF44...  ...  get    0
+109463  10  z44uy84y44444ulNvu6K4464444yVOGK4uN44448HbgY3c...  ...  get    0
+109571  10  z44uy84y44444xz5VqdF44i444444shT5o84u84444nF44...  ...  get    0
+
+[8 rows x 7 columns]
+finished:tenant_num_1-iter_0
+        ts                                                key  ...   op  ttl
+64142    6               z44uy84yzEWj7CuId44K4464444yiIn444==  ...  get    0
+64235    6  z44uy84yySYsXkYqn4GF44i444444sHWV884u84444GF44...  ...  get    0
+64710    6  z44uy84y444444YFg2VK4uN444483bvoMcA9Hc3YvbvOHb...  ...  get    0
+67680    7               z44uy84G444444bjR-6K4464444yiOo444==  ...  get    0
+71107    7               z44uy84G444444bDM-6K4464444yVG8444==  ...  get    0
+72292    7  z44uy84y44444yxRVf4F44i444444M_HG484u84444nF44...  ...  get    0
+72825    7  z44uy84y444444lfs4VF44i444444lrI7484u84444nF44...  ...  get    0
+73480    7  z44uy84yy7yFOcyVG4GF44i444444McPK484u84444GF44...  ...  get    0
+75235    7  z44uy84yz3vNJAmq744F44i444444svPg484u84444nF44...  ...  get    0
+75470    7  z44uy84yz_vkuVyqo46K4464444ygOnK4uN44448vt393J...  ...  get    0
+75840    7  z44uy84y44444uJCLs8F44i444444sbKKo84u8444uvF44...  ...  get    0
+76955    7  z44uy84y44444uT_IkoF44i444444l-mvo84u84444nF44...  ...  get    0
+83253    8  z44uy84y44444uLu2f4K4uN44448TbVeHJvXMqh93ci0Hz...  ...  get    0
+84625    8       z44uy84y444444wjLgVn44M4444uyo4F44444AIc444=  ...  get    0
+84798    8  z44uy84yz0DwWDbqC44F44i444444l_IJi84u84444nF44...  ...  get    0
+86567    8                   z44uy84G444444btV66n44M4444y444=  ...  get    0
+88697    9  z44uy84yz-3XFeYqC44K4464444yIIvK4uN44448MJGtTc...  ...  get    0
+90287    9                   z44uy84G444444brDMCn44M4444F444=  ...  get    0
+90585    9                   z44uy84G444444btg_8n44M4444y444=  ...  get    0
+91666    9                   z44uy84G444444btg_8n44M4444y444=  ...  get    0
+91986    9  z44uy84y44444uJCLs8F44i444444sbKKo84u8444uvF44...  ...  get    0
+92190    9       z44uy84yz-3hcw3q744n44M4444Fyo4F44444CEW444=  ...  get    0
+94305    9  z44uy84y44444uWvx36K4464444yIIvK4uN44448MqM5vP...  ...  get    0
+94386    9  z44uy84yyelMvDvqG4GF44i444444sxsR484u84444nF44...  ...  get    0
+94514    9  z44uy84y444444Gmv16K4464444yIIvK4uN44448M53J3c...  ...  get    0
+104333  10       z44uy84y444444v3aG8n44M4444Fyo4F44444AIc444=  ...  get    0
+108199  10       z44uy84y44444u6erkiK4464444yIIvn4yi4444z444=  ...  get    0
+108824  10               z44uy84y444444SpoeMK4464444ycI8444==  ...  get    0
+
+[28 rows x 7 columns]
+finished:tenant_num_1-iter_1
+        ts                                                key  ...   op  ttl
+31513    3  z44uy84yz0DwWDbqC44K4464444yIIvK4uN44448McMLvJ...  ...  get    0
+31802    3  z44uy84y444444w9tFSK4uN44448vbM5MPg9TzVrHJHCHz...  ...  get    0
+34116    3  z44uy84y444444KYvr8K4464444yIIvK4uN44448HJIJHt...  ...  get    0
+36497    3               z44uy84yyfqRcRVq744K4464444yxA4444==  ...  get    0
+36560    3  z44uy84yGz9_ULnWM4GF44i444444sbT8484u84444nF44...  ...  get    0
+42516    4       z44uy84yzaXcc_eqC44n44M4444cyo4F44444CHu444=  ...  get    0
+43031    4  z44uy84y44444uQs5_VK4464444yIIvK4uN444483bvoMc...  ...  get    0
+46362    4               z44uy84y444444SpoeMK4464444ycI8444==  ...  get    0
+63270    6  z44uy84yz4QIhv_Vv44F44i444444sb84484u8444uvF44...  ...  get    0
+66007    6  z44uy84y4444443peYnK4464444yIIvK4uN44448HPu9Hz...  ...  get    0
+68397    7  z44uy84y444442U4UsiK4464444yIIvK4uN44448TbiOTb...  ...  get    0
+73493    7               z44uy84G444444bowFNK4464444yIIv444==  ...  get    0
+81147    8  z44uyo4F44444AIcyo4f4444nzYAHc3PH5hYMJVOTcitMq...  ...  get    0
+105621  10  z44uy84y44444FH_y1VF44i444444lOjio84u84444nF44...  ...  get    0
+108317  10  z44uy84y444444wtBBCF44i444444sTSfo84u8444uvF44...  ...  get    0
+
+[15 rows x 7 columns]
+finished:tenant_num_1-iter_2
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+        ts                                                key  ...   op  ttl
+62       0  z44uy84y444444Ux9lnF44i444444TJJ9o84u84444nF44...  ...  get    0
+240      0  z44uy84yGiuZZxeWO4nF44i444444sKgsi84u84444CF44...  ...  get    0
+1013     0                   z44uy84G444444brKS6n44M4444y444=  ...  get    0
+2496     0                   z44uy84G444444brKS6n44M4444y444=  ...  get    0
+4907     1  z44uy84yydyN0C9Vv44F44i4444443Keji84u844446F44...  ...  get    0
+6138     1  z44uy84y44444yxRVf4F44i444444M_HG484u84444nF44...  ...  get    0
+6399     1       z44uy84y444444hhgu4n44M4444Gyo4F44444AIc444=  ...  get    0
+7080     1                   z44uy84G444444b2leon44M4444w444=  ...  get    0
+7408     1       z44uy84yGTkvkpEW744n44M4444yyo4F44444CRy444=  ...  get    0
+7694     1                   z44uy84G444444bOPAGn44M4444y444=  ...  get    0
+10271    1               z44uy84G444444b1fL8K4464444yiOG444==  ...  get    0
+13106    1                   z44uy84G444444bJ33Gn44M4444c444=  ...  get    0
+18358    2  z44uy84y44444U4_18iF44i444444sgP-i84u84444nF44...  ...  get    0
+18715    2                   z44uy84G4444444A_6Vn44M4444F444=  ...  get    0
+20285    2                   z44uy84G444444btxDin44M4444y444=  ...  get    0
+20353    2                   z44uy84G444444btxDin44M4444y444=  ...  get    0
+21623    2  z44uy84y444444w9tFSK4uN44448MPveTbnLvz4LHP3JHz...  ...  get    0
+21633    2               z44uy84G444444br4x6K4464444yIIv444==  ...  get    0
+26466    3               z44uy84G444444btn1oK4464444yxVi444==  ...  get    0
+31996    3       z44uy84y44444nUHb84n44M4444cyo4F44444Chh444=  ...  get    0
+32704    3                   z44uy84y444444cou56n44M4444y444=  ...  get    0
+34049    3               z44uy84G444444hn3CVK4464444yIIv444==  ...  get    0
+36456    3                   z44uy84y44444vQbTtCn44M4444w444=  ...  get    0
+37044    4  z44uy84y444444s3h4iK4464444yIIvK4uN444483bHCMt...  ...  get    0
+38749    4               z44uy84G444444bOVZvK4464444yIhn444==  ...  get    0
+40225    4       z44uy84y44444nqT0-vn44M4444yyo4F44444Agx444=  ...  get    0
+46549    4  z44uyo4F44444AIcyo4f4444nzAPTzVXH5nevPvXvci53J...  ...  get    0
+47595    5               z44uy84G444444bEEOiK4464444yxA4444==  ...  get    0
+48034    5                   z44uy84G444444bOb0on44M4444y444=  ...  get    0
+48268    5                   z44uy84G444444btg_8n44M4444y444=  ...  get    0
+53233    5       z44uy84y444444GEYuSn44M4444yyo4F44444Agn444=  ...  get    0
+54707    5                   z44uy84G444444bRZrOn44M4444y444=  ...  get    0
+54729    5  z44uy84yzaQpoHsVN44K4464444yIIvK4uN44448MtSLTc...  ...  get    0
+57805    6                   z44uy84yyE2rD_ZV444n44M4444u444=  ...  get    0
+58592    6  z44uy84yyBfMrzDVN4GF44i444444sb4Ro84u84444GF44...  ...  get    0
+59287    6                   z44uy84G444444bt0qin44M4444y444=  ...  get    0
+63600    6                   z44uy84G444444brKS6n44M4444y444=  ...  get    0
+68759    7  z44uy84yzeqFwlXIM4GK4464444yIIvK4uN44448TqV5M5...  ...  get    0
+71271    7  z44uy84yz-3XFeYqC44K4464444yIIvK4uN44448MJGtTc...  ...  get    0
+78633    8  z44uy84yzKqWF35Vn4GK4464444yxA4K4uN444483bn53z...  ...  get    0
+79277    8  z44uy84y444444PW8RdK4464444yIIvK4uN44448Hqve3P...  ...  get    0
+86804    8  z44uy84y444444Ik0L8F44i444444sK1eo84u84444nF44...  ...  get    0
+88577    9       z44uy84yzQcwMXBWV4GK4464444ycCNn4yi4444y444=  ...  get    0
+91178    9  z44uy84y44444uxyPvSF44i444444sxV7884u84444GF44...  ...  get    0
+92461    9       z44uy84y444444Tynd6n44M4444Gyo4F44444AIc444=  ...  get    0
+93515    9               z44uy84yy7J-8GeIM44K4464444yiOG444==  ...  get    0
+94154    9  z44uy84y444444cLDoCK4uN44448Hcg9vPv5vzR9HcAPHz...  ...  get    0
+94401    9  z44uy84yz13SqcDW844F44i444444sbKci84u84444GF44...  ...  get    0
+96517    9  z44uy84yG4tJOvnIV4GK4464444yIIvK4uN44448Mc3Y3b...  ...  get    0
+96820    9  z44uy84yGTMJrAgVM4GF44i444444sgQVo84u84444GF44...  ...  get    0
+103252  10                   z44uy84yzamWoMmW644n44M4444y444=  ...  get    0
+106580  10  z44uy84yy_BUeABIo4nK4464444yIIvK4uN44448HzAAvt...  ...  get    0
+106948  10               z44uy84G444444bOIa4K4464444yiIn444==  ...  get    0
+108329  10               z44uy84G444444bclp7K4464444yiON444==  ...  get    0
+
+[54 rows x 7 columns]
+finished:tenant_num_2-iter_0
+        ts                                                key  ...   op  ttl
+2198     0                           z44uy84G444444bEP8d444==  ...  get    0
+13470    1  z44uy84y44444uwf7gVF44i444444Uupd884u84444nF44...  ...  get    0
+16006    2  z44uy84yzz26L21Wd44F44i444444svvL484u844446F44...  ...  get    0
+17855    2                           z44uy84G444444bIv0M444==  ...  get    0
+18668    2                   z44uy84G444444bOg5Cn44M4444w444=  ...  get    0
+18811    2  z44uy84yy0B8LulI444F44i444444sg-Yi84u84444nF44...  ...  get    0
+22857    2       z44uy84y44444y2SbFnn44M4444yyo4F44444AIc444=  ...  get    0
+23346    2  z44uy84yz-3XFeYqC44K4464444yIIvK4uN44448MJGtTc...  ...  get    0
+25695    2               z44uy84G444444btn1oK4464444yxVi444==  ...  get    0
+27819    3  z44uy84y444444KuTOdF44i444444wy-io84u8444uvF44...  ...  get    0
+27987    3  z44uy84yGTsrD-dWC44K4464444yIIvK4uN44448HPH9Mt...  ...  get    0
+29367    3  z44uy84y444444zkuMdF44i444444syAjo84u84444nF44...  ...  get    0
+33680    3               z44uy84y444444wrEavK4464444yIhS444==  ...  get    0
+36259    3       z44uy84yzYK-jx9I744n44M4444uyo4F44444CQi444=  ...  get    0
+38288    4  z44uy84y44444wlOxxGK4464444yIIvK4uN44448vzC5M5...  ...  get    0
+41695    4  z44uy84yGUJ-ZxzV744F44i444444sxzGi84u84444nF44...  ...  get    0
+46783    4  z44uy84yz3vNJAmq744F44i444444sv90o84u844446F44...  ...  get    0
+48292    5                   z44uy84y44444vVMS3Cn44M4444y444=  ...  get    0
+60825    6                           z44uy84y444444kZ_54444==  ...  get    0
+64789    6               z44uy84G444444brmhSK4464444yxA4444==  ...  get    0
+68787    7               z44uy84G444444bESACK4464444yIIv444==  ...  get    0
+71096    7               z44uy84G444444zVSWiK4464444yVG8444==  ...  get    0
+72862    7  z44uy84y44444upN6QSF44i444444sF1V884u84444nF44...  ...  get    0
+73976    7                           z44uy84G444444bLL6v444==  ...  get    0
+81315    8                   z44uy84G444444bdsbin44M4444y444=  ...  get    0
+85111    8  z44uy84yzTLiPR4WS4GF44i444444WXEmo84u84444nF44...  ...  get    0
+95742    9  z44uy84y44444FlGdRMK4464444yIIvK4uN44448Tbn5HP...  ...  get    0
+96025    9       z44uy84y44444vuF1bNn44M4444yyo4F44444CAG444=  ...  get    0
+101232  10  z44uy84y444444nadg6F44i444444sibni84u84444nF44...  ...  get    0
+106995  10  z44uy84yydHpOByVn44F44i444444MpmX484u844446F44...  ...  get    0
+110323  10  z44uy84y44444z1vOx4F44i444444sgweo84u8444uvF44...  ...  get    0
+
+[31 rows x 7 columns]
+finished:tenant_num_2-iter_1
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+       ts                                                key  ...   op  ttl
+107     0  z44uy84y444444lXbF6K4uN44448M5Go3c8t3PvOHcMLHz...  ...  get    0
+1283    0  z44uy84y444444orXbdK4464444yxA4K4uN44448TznX3c...  ...  get    0
+1603    0  z44uy84y444444NiZHVF44i4444443092484u844446F44...  ...  get    0
+3091    0       z44uy84y444444sJXXVn44M4444yyo4F44444CHu444=  ...  get    0
+3791    0       z44uy84y44444434uQGn44M4444yyo4F44444CRy444=  ...  get    0
+5136    1       z44uy84yyNacjeYWV44n44M4444yyo4F44444CIc444=  ...  get    0
+6034    1                   z44uy84yzamWoMmW644n44M4444y444=  ...  get    0
+7288    1  z44uy84y44444uJCLs8F44i444444sbKKo84u8444uvF44...  ...  get    0
+8915    1               z44uy84yyNLmGM9Io44K4464444ygAn444==  ...  get    0
+11712   1                   z44uy84G444444bJ33Gn44M4444c444=  ...  get    0
+12482   1  z44uy84y44444uJWisnK4uN44448HzuP3PYP3znOHtwAHz...  ...  get    0
+13163   1       z44uy84y44444KYBepVn44M4444cyo4F44444CHu444=  ...  get    0
+16923   2  z44uy84yGUJ-ZxzV744F44i444444sxzGi84u84444nF44...  ...  get    0
+18492   2  z44uy84y444444ngZLnF44i444444shfKi84u84444nF44...  ...  get    0
+18826   2  z44uy84y444444h-xUvF44i444444s4Pi484u84444nF44...  ...  get    0
+20582   2                   z44uy84yyE2rD_ZV444n44M4444u444=  ...  get    0
+20967   2               z44uy84G444444bJejSK4464444yxA4444==  ...  get    0
+21512   2  z44uy84yy0B8LulI444F44i444444sg-Yi84u84444nF44...  ...  get    0
+21888   2  z44uy84y444444juwHNK4uN444483zHAvPYCvJvO3PvOHz...  ...  get    0
+25931   3  z44uy84y444444ngZLnF44i444444shfKi84u84444nF44...  ...  get    0
+26167   3       z44uy84y444444sJXXVn44M4444yyo4F44444CHu444=  ...  get    0
+27226   3  z44uy84y444444NrveoF44i444444siyv884u84444nF44...  ...  get    0
+27286   3  z44uy84y444444NrveoF44i444444siyv884u84444nF44...  ...  get    0
+27298   3                   z44uy84G444444brhTNn44M4444G444=  ...  get    0
+29125   3  z44uy84y444444iCAQ8F44i444444lrO7884u84444nF44...  ...  get    0
+31151   3  z44uy84y444444vCUzVF44i444444s2C7i84u84444nF44...  ...  get    0
+34993   3  z44uy84y4444448Bw1GF44i444444swu4484u844446F44...  ...  get    0
+38553   4  z44uy84yGy5xL0XVM44K4464444yxA4K4uN444483biovc...  ...  get    0
+39045   4               z44uy84yz901Q5dqd4nK4464444ygAn444==  ...  get    0
+40634   4       z44uy84yzVAOlvUW744n44M4444yyo4F44444AIc444=  ...  get    0
+40663   4       z44uy84yzVAOlvUW744n44M4444yyo4F44444AIc444=  ...  get    0
+43598   4  z44uyo4F44444AIcyo4f4444nzvtHcRJvPiXTPCL3cMLvb...  ...  get    0
+43620   4  z44uy84y44444uQs5_VK4464444yIIvK4uN444483bvoMc...  ...  get    0
+46876   5  z44uy84y44444F2IlFCF44i444444Vsi1i84u84444nF44...  ...  get    0
+47066   5               z44uy84yyNb1hj4WC4MK4464444ygOn444==  ...  get    0
+47465   5  z44uy84yzjK4OC7W844K4464444yIIvK4uN44448vqhJM5...  ...  get    0
+48562   5  z44uy84y44444vqtU8SK4464444yiOGK4uN44448vcwA3q...  ...  get    0
+55685   5  z44uy84y444444JuYuOF44i444444sxIy484u84444GF44...  ...  get    0
+57700   6               z44uy84yz901Q5dqd4nK4464444ygAn444==  ...  get    0
+57896   6  z44uy84y44444hypk5oF44i444444szmD884u8444uvF44...  ...  get    0
+58230   6                   z44uy84y44444vVMS3Cn44M4444y444=  ...  get    0
+58772   6  z44uy84y44444GVP4GMF44i444444UjJi884u84444nF44...  ...  get    0
+59576   6                   z44uy84yyD6VxFvVd4Gn44M4444w444=  ...  get    0
+60415   6  z44uy84yzqh0y5Nq44nF44i444444sgp_o84u84444nF44...  ...  get    0
+61643   6               z44uy84G444444brmhSK4464444yxA4444==  ...  get    0
+68285   7  z44uy84y444444L8QcvK4uN44448HzCLM5gYvtVL3JICHb...  ...  get    0
+70207   7               z44uy84G444444brACVK4464444yxA4444==  ...  get    0
+71196   7  z44uy84y444444GbpvnF44i444444lPF-o84u8444uvF44...  ...  get    0
+75641   7  z44uy84y444444lXbF6K4464444yIIvK4uN44448HtgYvJ...  ...  get    0
+75645   7  z44uy84y44444wDbALnF44i444444INDB884u8444uvF44...  ...  get    0
+89383   9  z44uy84y444442MKPuMF44i444444llmY884u8444uvF44...  ...  get    0
+
+[51 rows x 7 columns]
+finished:tenant_num_2-iter_2
+        ts                                                key  ...   op  ttl
+5403     1               z44uy84G444444bOIa4K4464444yiIn444==  ...  get    0
+7687     1  z44uy84y44444bguwVMF44i444444sh6a484u84444iF44...  ...  get    0
+8260     1                   z44uy84y44444ugEs16n44M4444G444=  ...  get    0
+13077    1               z44uy84y444444GpB17K4464444yiAn444==  ...  get    0
+14944    1  z44uy84y444444ngZLnF44i444444shfKi84u84444nF44...  ...  get    0
+17428    2  z44uy84y444444JuYuOF44i444444sxIy484u84444GF44...  ...  get    0
+20151    2  z44uy84y44444uT62MSK4uN44448HtYJHqM0HbVrvz4tHb...  ...  get    0
+21991    2  z44uy84y44444wwtncnK4464444yIIvK4uN44448Hcg9vP...  ...  get    0
+27914    3  z44uy84y44444yGc-W4F44i444444l2Lj484u84444nF44...  ...  get    0
+32302    3  z44uy84yGTt6yUBWO44F44i444444s4lj884u84444iF44...  ...  get    0
+36517    3               z44uy84y444444TsYFVK4464444yxV7444==  ...  get    0
+36678    3  z44uyo4F44444AIcyo4f4444nbvoHbH9vbIAvqn53ci7vP...  ...  get    0
+38723    4  z44uy84y444444GbpvnF44i444444lPF-o84u8444uvF44...  ...  get    0
+39623    4  z44uy84yGzsV_m5VG44F44i444444suJCo84u8444uvF44...  ...  get    0
+42513    4                           z44uy84G444444bE2OM444==  ...  get    0
+43158    4                           z44uy84G444444bIv0M444==  ...  get    0
+44061    4  z44uy84y44444uwf7gVF44i444444Uupd884u84444nF44...  ...  get    0
+44947    4               z44uy84y444444SpoeMK4464444ycI8444==  ...  get    0
+47737    5  z44uy84y444444RzjRdF44i444444I3K8o84u84444nF44...  ...  get    0
+48503    5  z44uyo4F44444AIcyo4f4444nbg9vtCtvPMevcneHziOTb...  ...  get    0
+54185    5               z44uy84G444444yRICSK4464444ygAn444==  ...  get    0
+55267    5  z44uy84y44444hMD7q4K4464444yIIvK4uN44448MPveTb...  ...  get    0
+56388    5   z44uy84yyrIAE7ZqG44n44M4444Fyo4F4444uGhcxVG444==  ...  get    0
+56980    6               z44uy84G444444bO8voK4464444yxA4444==  ...  get    0
+57634    6       z44uy84yGbI6WO3I44Gn44M4444uyo4F44444CQi444=  ...  get    0
+59357    6                   z44uy84G444444bjCMCn44M4444y444=  ...  get    0
+59591    6  z44uy84y44444uvsK28K4464444yxA4K4uN44448HzMtvt...  ...  get    0
+60046    6  z44uy84y444444ckYxVK4uN444483cwAH5w9vbhP3qG0Hb...  ...  get    0
+64036    6               z44uy84G444444bt_JCK4464444yxen444==  ...  get    0
+64751    6  z44uyo4F44444Chhyo4f4444nzMtTzCevzw9HtGtvciXMP...  ...  get    0
+64981    6  z44uyo4F44444Chhyo4f4444nzMtTzCevzw9HtGtvciXMP...  ...  set  240
+66086    6  z44uy84y444444Ik0L8F44i444444sK1eo84u84444nF44...  ...  get    0
+68390    7  z44uy84y444444z4l5oK4464444yIIvK4uN44448HtHPHc...  ...  get    0
+68626    7  z44uyo4F44444AIcyo4f4444nzYAHc3PH5hYMJVOTcitMq...  ...  get    0
+69108    7                   z44uy84y44444KajJvdn44M4444F444=  ...  get    0
+70495    7  z44uy84y444444h2eBiK4464444yIIvK4uN444483PRCvt...  ...  get    0
+70690    7       z44uy84yGiQCr8uqd44n44M4444Fyo4F44444AHu444=  ...  get    0
+70921    7                   z44uy84yzamWoMmW644n44M4444y444=  ...  get    0
+71042    7       z44uy84y44444nqT0-vn44M4444yyo4F44444CeM444=  ...  get    0
+72150    7               z44uy84G444444bO8voK4464444yxA4444==  ...  get    0
+72400    7                           z44uy84G444444b1R88444==  ...  get    0
+75045    7       z44uy84y44444bu8Wyin44M4444Fyo4F44444AIc444=  ...  get    0
+79481    8  z44uy84y4444442MVnNF44i444444szPu484u8444uvF44...  ...  get    0
+83513    8  z44uy84yGiuZZxeWO4nF44i444444sKgsi84u84444CF44...  ...  get    0
+85472    8               z44uy84G444444bO8voK4464444yxA4444==  ...  get    0
+88307    8  z44uy84yGz9_ULnWM4GF44i444444sbT8484u84444nF44...  ...  get    0
+88643    9  z44uy84y444444hyut4K4464444yiONK4uN44448vbIAvJ...  ...  get    0
+88815    9               z44uy84G444444b1fL8K4464444yiOG444==  ...  get    0
+91279    9  z44uyo4F44444AIcyo4f4444nzhAHJwAvtStvbgCMPi7Tc...  ...  get    0
+91683    9  z44uyo4F44444AIcyo4f4444nzhAHJwAvtStvbgCMPi7Tc...  ...  get    0
+93253    9  z44uy84yz-3XFeYqC44K4464444yIIvK4uN44448MJGtTc...  ...  get    0
+97401    9  z44uy84yz0DwWDbqC44K4464444bgIIxceuhyo4f4444nz...  ...  get    0
+101509  10  z44uyo4F44444AHuyo4f4444nzIPHqM0TcCoMqVtvPioTz...  ...  get    0
+103659  10                   z44uy84yyD6VxFvVd4Gn44M4444w444=  ...  get    0
+104292  10  z44uy84y444444iCAQ8F44i444444lrO7884u84444nF44...  ...  get    0
+
+[55 rows x 7 columns]
+finished:tenant_num_3-iter_0
+        ts                                                key  ...   op  ttl
+2292     0                   z44uy84y44444upkgivn44M4444y444=  ...  get    0
+23701    2  z44uy84y444444KuTOdF44i444444wy-io84u8444uvF44...  ...  get    0
+24081    2  z44uy84y44444GLbaP7F44i444444MDYc484u84444nF44...  ...  get    0
+32332    3  z44uy84y44444TpYqCVK4464444yIIvK4uN44448vP4oHc...  ...  get    0
+46774    4  z44uyo4F44444AIcyo4f4444nzMLHJiX3P4XHtgP3PiXHP...  ...  get    0
+55974    5  z44uy84y444444GbpvnF44i444444lPF-o84u8444uvF44...  ...  get    0
+63913    6  z44uy84y444444KuTOdF44i444444wy-io84u8444uvF44...  ...  get    0
+67079    6  z44uy84y4444443xZ1VK4464444yiONK4uN44448Ht45Hq...  ...  get    0
+71538    7       z44uy84y444444wDpXNn44M4444yyo4F44444ChI444=  ...  get    0
+79069    8                   z44uy84yzamWoMmW644n44M4444y444=  ...  get    0
+79674    8               z44uy84G444444bt_OdK4464444ygIv444==  ...  get    0
+83871    8  z44uy84y44444wDbALnK4464444ygOnK4uN444483zVtH5...  ...  get    0
+90095    9       z44uy84y44444vuF1bNn44M4444yyo4F44444CAG444=  ...  get    0
+90419    9  z44uy84yGGKQmY4VN44F44i444444sg5Li84u84444GF44...  ...  get    0
+91039    9  z44uy84y44444vrzWVdF44i444444WEWoi84u84444nF44...  ...  get    0
+93189    9  z44uy84yyD6VxFvVd4GF44i444444MjPF484u84444CF44...  ...  get    0
+93195    9  z44uy84y4444445bwGMF44i4444443kmIo84u84444nF44...  ...  get    0
+98539    9                   z44uy84yymoNmFnIn4Gn44M4444y444=  ...  get    0
+103683  10  z44uy84yztFzqUcWO4GF44i444444MYEko84u84444nF44...  ...  get    0
+105359  10               z44uy84G444444bESACK4464444yIIv444==  ...  get    0
+105665  10  z44uy84y44444GNrKlnK4uN44448MJHYH5MOvPw9vbMeHz...  ...  get    0
+
+[21 rows x 7 columns]
+finished:tenant_num_3-iter_1
+        ts                                                key  ...   op  ttl
+2312     0  z44uy84y44444zxpaaiK4464444yIIvK4uN444483P85vt...  ...  get    0
+2864     0                           z44uy84G444444bIv0M444==  ...  get    0
+3061     0  z44uy84yyY3dcWZV744K4uN444483PYAvJMXvcMoHcG5Hb...  ...  get    0
+4342     0  z44uy84y4444446p3tNK4464444ygAnK4uN44448vtR93c...  ...  get    0
+4947     1  z44uy84y444444AwDUCK4uN44448vP8rTcgYTznt3JwPHz...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+106391  10                   z44uy84yzamWoMmW644n44M4444y444=  ...  get    0
+107078  10       z44uy84y44444yU1Qpon44M4444cyo4F44444CHu444=  ...  get    0
+108873  10  z44uy84y44444w8HlvoF44i444444lAMHo84u84444nF44...  ...  get    0
+108914  10  z44uy84y44444wGeaBMK4464444yIIvK4uN44448HtHPMt...  ...  get    0
+109572  10  z44uy84yzKqWF35Vn4GK4464444yxA4K4uN444483bn53z...  ...  get    0
+
+[85 rows x 7 columns]
+finished:tenant_num_3-iter_2
+        ts                                                key  ...   op  ttl
+924      0  z44uy84yzNd3fvoVM4GF44i444444snGJ484u844446F44...  ...  get    0
+1548     0                   z44uy84G444444bOuj4n44M4444u444=  ...  get    0
+2427     0  z44uy84y44444yNO6E7F44i444444lbeGi84u84444nF44...  ...  get    0
+2602     0  z44uy84y444444VfYRSK4464444yIIvK4uN44448vciOMJ...  ...  get    0
+3528     0  z44uy84y444444nhqGiK4uN44448MJVX3P8rvbGLHt3JHz...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+105970  10                   z44uy84G444444bOPkVn44M4444y444=  ...  get    0
+108284  10       z44uy84yzUorA6CI644n44M4444yyo4F44444CAG444=  ...  get    0
+108691  10       z44uy84y44444vuF1bNn44M4444yyo4F44444CAG444=  ...  get    0
+109455  10  z44uy84y444444EhVz6F44i444444sxiX884u84444nF44...  ...  get    0
+109497  10               z44uy84y44444yxnvqMK4464444yIIv444==  ...  get    0
+
+[251 rows x 7 columns]
+finished:tenant_num_10-iter_0
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+        ts                                                key  ...   op  ttl
+425      0  z44uy84yz_yFpdcIV44F44i444444shQro84u84444nF44...  ...  get    0
+2987     0  z44uy84yyaNyNiuIn4GF44i444444sw6b884u84444nF44...  ...  get    0
+5087     1  z44uy84y444444q2ZaSF44i444444sn5di84u84444CF44...  ...  get    0
+6106     1       z44uy84y44444nqT0-vn44M4444yyo4F44444Agx444=  ...  get    0
+6759     1  z44uyo4F44444AIcyo4f4444nbvoHbH9vbIAvqn53ci7vP...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+107901  10       z44uy84y444444bN1b4n44M4444yyo4F44444Agx444=  ...  get    0
+107967  10  z44uy84yzMqSxn-VO44F44i444444WBzZo84u84444nF44...  ...  get    0
+108066  10               z44uy84G444444bTzgVK4464444yiOG444==  ...  get    0
+109010  10       z44uy84yzoFhbL1Wi4Gn44M4444yyo4F44444CHu444=  ...  get    0
+109817  10  z44uy84y444444GbpvnF44i444444lPF-o84u8444uvF44...  ...  get    0
+
+[221 rows x 7 columns]
+finished:tenant_num_10-iter_1
+        ts                                                key  ...   op  ttl
+1556     0                   z44uy84yyD6VxFvVd4Gn44M4444w444=  ...  get    0
+1604     0  z44uy84y444444KYvr8K4464444yIIvK4uN44448HJIJHt...  ...  get    0
+1794     0  z44uy84y44444KaYf-7F44i444444szgn884u844446F44...  ...  get    0
+2142     0       z44uy84yGiQCr8uqd44n44M4444Fyo4F44444AHu444=  ...  get    0
+2519     0       z44uy84y44444no8-Hnn44M4444Gyo4F44444Ce3444=  ...  get    0
+...     ..                                                ...  ...  ...  ...
+108844  10                   z44uy84y44444KjY0kMn44M4444w444=  ...  get    0
+108942  10  z44uy84yzYD5cyUq744K4464444yIIvK4uN44448TzitTb...  ...  get    0
+109009  10  z44uy84y444444L76OCK4464444yIIvK4uN44448TzCe3P...  ...  get    0
+109099  10  z44uy84yyBfMrzDVN4GF44i444444sb4Ro84u84444GF44...  ...  get    0
+109715  10       z44uy84y444444sJXXVn44M4444yyo4F44444CHu444=  ...  get    0
+
+[328 rows x 7 columns]
+finished:tenant_num_10-iter_2
+        ts                                                key  ...   op  ttl
+10       0  z44uy84yGUXUxyVVo4GF44i444444swzC884u844446F44...  ...  get    0
+235      0       z44uy84y444444Tynd6n44M4444Gyo4F44444AIc444=  ...  get    0
+420      0  z44uy84yzCzNnVXW64vF44i444444sij-i84u84444iF44...  ...  get    0
+620      0                   z44uy84G444444bOCdNn44M4444u444=  ...  get    0
+1049     0  z44uy84y44444uWvx36K4464444yIIvK4uN44448MqM5vP...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+110152  10  z44uy84y4444445vUc6K4464444yiONK4uN44448HcSeHq...  ...  get    0
+110296  10       z44uy84yzNs6natVo4Gn44M4444yyo4F44444CQi444=  ...  get    0
+110389  10                           z44uy84G444444bEP8d444==  ...  get    0
+110478  10  z44uy84yzZko9TlWS44F44i444444M1OX884u84444nF44...  ...  get    0
+110484  10  z44uy84y44444GxLUydF44i444444siwDo84u84444nF44...  ...  get    0
+
+[1052 rows x 7 columns]
+finished:tenant_num_50-iter_0
+        ts                                                key  ...   op  ttl
+102      0                   z44uy84y444444KcVfNn44M4444u444=  ...  get    0
+277      0  z44uy84yGzsV_m5VG44F44i444444suJCo84u8444uvF44...  ...  get    0
+380      0  z44uy84y444444iCAQ8F44i444444lrO7884u84444nF44...  ...  get    0
+581      0  z44uy84y44444yGc-W4F44i444444l2Lj484u84444nF44...  ...  get    0
+641      0                           z44uy84G444444btnzN444==  ...  get    0
+...     ..                                                ...  ...  ...  ...
+110207  10  z44uyo4F44444AIcyo4f4444nbgCvzGXMtCrHc4tvPgAHc...  ...  get    0
+110233  10  z44uy84y444444XXjLNK4464444yIIvK4uN44448v5vXvb...  ...  get    0
+110294  10  z44uy84y44444G0CAL4K4uN444483PGeMqVXHtSt3PSOHz...  ...  get    0
+110348  10               z44uy84G444444brq7vK4464444yIIv444==  ...  get    0
+110449  10                   z44uy84y44444414ep8n44M4444u444=  ...  get    0
+
+[1081 rows x 7 columns]
+finished:tenant_num_50-iter_1
+        ts                                                key  ...   op  ttl
+31       0  z44uy84yGnglMCNWC44K4464444yIIvK4uN44448TcG5H5...  ...  get    0
+293      0  z44uy84y444444PW8RdK4464444yIIvK4uN44448H5HY3P...  ...  get    0
+373      0   z44uy84yzfFlFKsWC4Gn44M4444Gyo4F4444uGhcxVG444==  ...  get    0
+472      0  z44uy84y44444hypk5oF44i444444szmD884u8444uvF44...  ...  get    0
+562      0  z44uy84y44444K37mT7F44i444444sHI_o84u844446F44...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+109988  10  z44uy84yzrZbbCUW74VF44i444444sgcB884u84444nF44...  ...  get    0
+110030  10  z44uy84yzrZbbCUW74VF44i444444sgcB884u84444nF44...  ...  get    0
+110045  10  z44uy84yyjjWpUQVG44F44i444444sxVe884u84444GF44...  ...  get    0
+110156  10                   z44uy84yyE2rD_ZV444n44M4444u444=  ...  get    0
+110240  10                   z44uy84y44444vIVg_Vn44M4444c444=  ...  get    0
+
+[889 rows x 7 columns]
+finished:tenant_num_50-iter_2
+        ts                                                key  ...   op  ttl
+12712    1  z44uy84y444444L76OCK4464444yIIvK4uN444483zIAMq...  ...  get    0
+14595    1  z44uy84y444444diPfVK4uN44448MJHYH5MOvPw9vbMeHz...  ...  get    0
+15747    2  z44uy84y444442MKPuMK4464444yIIvK4uN44448MqgAHt...  ...  get    0
+16062    2  z44uy84y44444yahlF6K4464444yIIvK4uN44448Hqi0Mq...  ...  get    0
+16996    2  z44uy84y44444yKOCY7K4464444yIIvK4uN44448vJ3Y3z...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+559291  52  z44uy84y444444gVwKnK4464444yIIvK4uN44448vcwA3q...  ...  get    0
+560724  52  z44uy84y44444yahlF6K4464444yIIvK4uN44448HPVoM5...  ...  get    0
+565285  52  z44uy84yz-3XFeYqC44K4464444yIIvK4uN44448H5V7Hb...  ...  get    0
+566120  52                   z44uy84G444444bQT2Sn44M4444y444=  ...  get    0
+566528  52  z44uy84y44444439-PCF44i444444sgI4i84u84444nF44...  ...  get    0
+
+[63 rows x 7 columns]
+finished:tenant_num_1-iter_0
+        ts                                                key  ...   op  ttl
+3055     0  z44uy84y44444uGvndVF44i444444sv2Ai84u84444CF44...  ...  get    0
+3602     0  z44uy84yyelMvDvqG4GF44i444444sxsR484u84444nF44...  ...  get    0
+8055     1  z44uy84yG4DJkQ6Wd44F44i444444lfTR484u84444iF44...  ...  get    0
+10092    1               z44uy84G444444bOfM6K4464444yIIv444==  ...  get    0
+10886    1                   z44uy84G444444bZquVn44M4444u444=  ...  get    0
+...     ..                                                ...  ...  ...  ...
+649866  60  z44uy84y44444uWSU24F44i444444lELFi84u84444nF44...  ...  get    0
+652533  60       z44uy84y444444bN1b4n44M4444yyo4F44444Agx444=  ...  get    0
+652766  60  z44uy84y44444w8HlvoF44i444444lAMHo84u84444nF44...  ...  get    0
+653146  60                   z44uy84yzitD1MtI444n44M4444w444=  ...  get    0
+655273  60       z44uy84yzcpZzqGWO4Gn44M4444yyo4F44444CAT444=  ...  get    0
+
+[147 rows x 7 columns]
+finished:tenant_num_1-iter_1
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+        ts                                                key  ...   op  ttl
+1183     0                   z44uy84G444444brpd4n44M4444F444=  ...  get    0
+4477     1  z44uy84yyelMvDvqG4GF44i444444sxsR484u84444nF44...  ...  get    0
+12664    1               z44uy84G444444hM0l6K4464444yxA4444==  ...  get    0
+14322    1  z44uy84y444444Gmv16K4uN44448MPveTbnLvz4LHP3JHz...  ...  get    0
+14324    1  z44uy84yz-NLHpuIV44F44i444444l-1qo84u84444GF44...  ...  get    0
+15523    2                   z44uy84G444444brpd4n44M4444F444=  ...  get    0
+16144    2  z44uy84y44444yahlF6K4464444yIIvK4uN44448Hqi0Mq...  ...  get    0
+19602    2  z44uy84y44444vW5VynF44i444444lthro84u84444nF44...  ...  get    0
+21473    2  z44uy84y44444yxRVf4F44i444444M_HG484u84444nF44...  ...  get    0
+31213    3                   z44uy84yyD6VxFvVd4Gn44M4444w444=  ...  get    0
+34839    3       z44uy84y444444mitQOn44M4444yyo4F44444Agn444=  ...  get    0
+42970    4  z44uy84yGg59jicVS4GF44i444444sHlEo84u84444nF44...  ...  get    0
+49556    5  z44uy84yzBD9lq2qO44K4464444yIIvK4uN44448vcu9Hc...  ...  get    0
+49610    5  z44uy84y44444GWYdtMK4464444yIIvK4uN44448Mt4OM5...  ...  get    0
+49654    5  z44uy84yGhLM2rEIV4VF44i444444l-T2o84u84444nF44...  ...  get    0
+49676    5  z44uy84yGhLM2rEIV4VF44i444444l-T2o84u84444nF44...  ...  get    0
+53288    5  z44uy84y444444NiZHVF44i4444443092484u844446F44...  ...  get    0
+53705    5       z44uy84y44444y2SbFnn44M4444yyo4F44444AIc444=  ...  get    0
+188650  18  z44uy84y444444bOwjCF44i444444M_s_484u84444nF44...  ...  get    0
+190918  18               z44uy84G444444bOVdoK4464444yIG8444==  ...  get    0
+191544  18  z44uy84yz5nzuLGI444K4464444yIIvK4uN44448H5i5vP...  ...  get    0
+191961  18  z44uy84yz0DwWDbqC44K4464444yxV7K4uN44448McIAv5...  ...  get    0
+193604  18                   z44uy84G444444bOb0on44M4444y444=  ...  get    0
+193969  18               z44uy84G444444GN7YVK4464444yiIV444==  ...  get    0
+201032  19                   z44uy84G444444btkbon44M4444w444=  ...  get    0
+202335  19                   z44uy84G444444btJW8n44M4444y444=  ...  get    0
+206594  19                   z44uy84G444444bdsbin44M4444y444=  ...  get    0
+208502  19  z44uy84y444444htsX7F44i4444443EjUo84u84444nF44...  ...  get    0
+209746  19                   z44uy84G444444bOYWVn44M4444y444=  ...  get    0
+216051  20  z44uy84yzW72VJ0I44GF44i444444sKfji84u84444nF44...  ...  get    0
+218884  20                   z44uy84G444444blMAnn44M4444y444=  ...  get    0
+294908  27                   z44uy84G444444btVZvn44M4444w444=  ...  get    0
+427448  40  z44uy84yGhbcdeeVV44F44i444444l1RWi84u84444GF44...  ...  get    0
+429496  40                   z44uy84yz9nW1wzWS4Gn44M4444c444=  ...  get    0
+434671  40       z44uy84yzUorA6CI644n44M4444yyo4F44444CAG444=  ...  get    0
+434936  40       z44uy84yzUorA6CI644n44M4444yyo4F44444CAG444=  ...  get    0
+437270  40  z44uy84yGUJ-ZxzV744F44i444444sxzGi84u84444nF44...  ...  get    0
+442021  41  z44uy84y444444wtBBCF44i444444sTSfo84u8444uvF44...  ...  get    0
+442098  41  z44uy84y444444VO4m4K4464444yIIvK4uN444483bvoMc...  ...  get    0
+443068  41  z44uy84yzfWn0cgqC4nF44i444444sFst484u84444nF44...  ...  get    0
+445275  41       z44uy84yy0MkLAbqv4in44M4444yyo4F44444Chx444=  ...  get    0
+445528  41  z44uy84yGgHUE51qC4GF44i444444sHCho84u84444nF44...  ...  get    0
+448445  41  z44uy84yz-NLHpuIV44F44i444444l-1qo84u84444GF44...  ...  get    0
+450065  42               z44uy84G444444brCtiK4464444yIIv444==  ...  get    0
+573682  53                           z44uy84G444444bLD96444==  ...  get    0
+579664  53               z44uy84G444444bt_OdK4464444ygIv444==  ...  get    0
+581061  54               z44uy84G444444bdCidK4464444GiIHwii44  ...  get    0
+581434  54  z44uy84y44444zUM8tOF44i444444ldoE484u84444nF44...  ...  get    0
+586273  54  z44uy84yGUJ-ZxzV744F44i444444sxzGi84u84444nF44...  ...  get    0
+591693  55                   z44uy84y44444vVMS3Cn44M4444y444=  ...  get    0
+591740  55                   z44uy84y44444vVMS3Cn44M4444y444=  ...  get    0
+596754  55  z44uy84y44444yNO6E7K4464444yIIvK4uN44448Mqit3z...  ...  get    0
+602832  56       z44uy84y444444bycrGn44M4444yyo4F44444Cgh444=  ...  get    0
+604019  56  z44uy84y44444uG04b7K4464444yiIVK4uN444483qwYHz...  ...  get    0
+613146  57  z44uy84y44444urEIsNK4464444yIIvK4uN44448vcHJTz...  ...  get    0
+613215  57  z44uy84y44444urEIsNK4464444yIIvK4uN44448vcHJTz...  ...  set  240
+622566  57  z44uy84y44444uTpPS7K4464444ygOnK4uN444483Jv0Mc...  ...  get    0
+622832  57                   z44uy84G444444btuddn44M4444w444=  ...  get    0
+625242  58  z44uy84y44444GVP4GMF44i444444UjJi884u84444nF44...  ...  get    0
+
+[59 rows x 7 columns]
+finished:tenant_num_1-iter_2
+        ts                                                key  ...   op  ttl
+2        0  z44uy84yz72hcCNVS4GF44i444444si6O484u84444nF44...  ...  get    0
+7062     1  z44uy84yGiuZZxeWO4nF44i444444sKgsi84u84444CF44...  ...  get    0
+7246     1  z44uy84y44444ywhePoK4464444yiOGK4uN44448Hcg9vP...  ...  get    0
+9972     1  z44uy84yGnglMCNWC44K4464444yIIvK4uN44448TcG5H5...  ...  get    0
+10130    1                   z44uy84G444444btpmSn44M4444w444=  ...  get    0
+...     ..                                                ...  ...  ...  ...
+644715  59  z44uy84y44444z8MKN6K4464444ygVSK4uN44448Mc4LHz...  ...  get    0
+644795  59  z44uy84y44444z8MKN6K4464444ygVSK4uN44448Mc4LHz...  ...  set  240
+647724  60                   z44uy84G444444bRZrOn44M4444y444=  ...  get    0
+647839  60  z44uy84y44444b7OUCiK4464444yIIvK4uN44448HJVo3z...  ...  get    0
+654453  60                           z44uy84G444444btYZn444==  ...  get    0
+
+[305 rows x 7 columns]
+finished:tenant_num_2-iter_0
+        ts                                                key  ...   op  ttl
+3195     0                   z44uy84yzKN5ikeVn44n44M4444y444=  ...  get    0
+19320    2  z44uy84y44444uMgQTnK4uN44448HtStTcIYvcnrvqieHb...  ...  get    0
+20478    2  z44uy84y444444pixJvF44i444444sxz_o84u84444nF44...  ...  get    0
+26788    3       z44uy84y444444uNqm6n44M4444uyo4F44444Ce3444=  ...  get    0
+34482    3                   z44uy84G444444btKxMn44M4444y444=  ...  get    0
+...     ..                                                ...  ...  ...  ...
+632938  58  z44uy84y444444z4l5oK4464444yIIvK4uN44448HPg9Tq...  ...  get    0
+636689  59  z44uy84y44444Kyo1sNF44i444444l3Si484u84444nF44...  ...  get    0
+640971  59               z44uy84G444444bmAGoK4464444GiIHwii44  ...  get    0
+644318  59                   z44uy84G444444brN6dn44M4444F444=  ...  get    0
+648635  60  z44uy84y444444GE_M8K4464444ygGVK4uN44448vJVoHz...  ...  get    0
+
+[92 rows x 7 columns]
+finished:tenant_num_2-iter_1
+        ts                                                key  ...   op  ttl
+302      0  z44uy84y44444uGaoUCF44i444444sbXQo84u84444GF44...  ...  get    0
+403      0  z44uy84y44444uGaoUCF44i444444sbXQo84u84444GF44...  ...  get    0
+4023     0  z44uy84yzjK4OC7W844K4uN44448vP4LHzi03qgCvJhYHz...  ...  get    0
+4852     1                           z44uy84G444444bVU-8444==  ...  get    0
+5565     1               z44uy84G444444bLDwCK4464444yiIn444==  ...  get    0
+...     ..                                                ...  ...  ...  ...
+651726  60  z44uyo4F44444AIcyo4f4444nzYAHc3PH5hYMJVOTcitMq...  ...  get    0
+652514  60                   z44uy84G444444bJ33Gn44M4444c444=  ...  get    0
+653791  60  z44uyo4F44444AIcyo4f4444nzhAHJwAvtStvbgCMPi7Tc...  ...  get    0
+654787  60               z44uy84G444444bD8GCK4464444yIIv444==  ...  get    0
+654823  60  z44uy84y444442MKPuMF44i444444llmY884u8444uvF44...  ...  get    0
+
+[367 rows x 7 columns]
+finished:tenant_num_2-iter_2
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+        ts                                                key  ...   op  ttl
+12373    1  z44uy84y44444wDbALnK4464444yiOGK4uN44448HPn0Hq...  ...  get    0
+14364    1  z44uy84yyplnhTVqi4GF44i444444layzi84u84444nF44...  ...  get    0
+18267    2                   z44uy84G444444boW2on44M4444y444=  ...  get    0
+28886    3  z44uy84y44444yW71fGF44i444444qa1B884u8444u4F44...  ...  get    0
+30229    3               z44uy84G444444bOiPiK4464444yxA4444==  ...  get    0
+...     ..                                                ...  ...  ...  ...
+643242  59  z44uy84yzWUR0hoVv44F44i4444443v6ro84u84444nF44...  ...  get    0
+646639  60  z44uy84y44444GAAKg8F44i444444snqMo84u84444nF44...  ...  get    0
+646958  60                   z44uy84G444444brpd4n44M4444F444=  ...  get    0
+653899  60       z44uy84y44444nqT0-vn44M4444yyo4F44444CeM444=  ...  get    0
+655721  60       z44uy84y444444wDpXNn44M4444yyo4F44444ChI444=  ...  get    0
+
+[272 rows x 7 columns]
+finished:tenant_num_3-iter_0
+        ts                                                key  ...   op  ttl
+1050     0  z44uy84y444442MKPuMF44i444444llmY884u8444uvF44...  ...  get    0
+1542     0  z44uy84y44444GBtwk6F44i444444sb00i84u84444nF44...  ...  get    0
+3726     0               z44uy84G444444brACVK4464444yxA4444==  ...  get    0
+3762     0       z44uy84yyavlEoTWM44K4464444yIIvn4yi4444y444=  ...  get    0
+4054     0                   z44uy84yy_IMESuIM44n44M4444G444=  ...  get    0
+...     ..                                                ...  ...  ...  ...
+644884  59  z44uy84y44444Kyo1sNF44i444444l3Si484u84444nF44...  ...  get    0
+651210  60  z44uy84y444444wtBBCF44i444444sTSfo84u8444uvF44...  ...  get    0
+651652  60  z44uy84yzW9B7RCWO4GF44i4444443aJU884u8444uvF44...  ...  get    0
+652600  60  z44uy84y444444UuIK7K4464444yIIvK4uN44448Mc3Y3b...  ...  get    0
+655708  60  z44uy84yzzE7B7_qO4GK4464444yxeSK4uN44448vJH9vb...  ...  get    0
+
+[398 rows x 7 columns]
+finished:tenant_num_3-iter_1
+        ts                                                key  ...   op  ttl
+51       0  z44uy84yzBhG2_7VO44F44i444444sgJE884u84444GF44...  ...  get    0
+4263     0                   z44uy84y44444vIVg_Vn44M4444c444=  ...  get    0
+6515     1               z44uy84yy7J-8GeIM44K4464444yiOG444==  ...  get    0
+8963     1  z44uy84y44444n5hs5CK4464444yiOGK4uN444483c47vz...  ...  get    0
+9538     1                   z44uy84G444444bjCMCn44M4444y444=  ...  get    0
+...     ..                                                ...  ...  ...  ...
+649817  60                           z44uy84G444444btYZn444==  ...  get    0
+650635  60               z44uy84y444444z8kAdK4464444yIhn444==  ...  get    0
+650657  60  z44uy84y444444KuTOdF44i444444wy-io84u8444uvF44...  ...  get    0
+654245  60                   z44uy84G444444bjbL7n44M4444y444=  ...  get    0
+654857  60  z44uy84y444444zl55GK4464444yIIvK4uN44448MPMoHP...  ...  get    0
+
+[228 rows x 7 columns]
+finished:tenant_num_3-iter_2
+        ts                                                key  ...   op  ttl
+355      0  z44uy84y44444nVN-p6F44i444444MfC3484u844446F44...  ...  get    0
+729      0  z44uy84yz3vNJAmq744F44i444444svPx884u84444nF44...  ...  get    0
+937      0               z44uy84y444444z8kAdK4464444yIhn444==  ...  get    0
+1526     0  z44uy84y444444yDCGiK4464444yIIvK4uN44448TzitTb...  ...  get    0
+1672     0  z44uyo4F44444AIcyo4f4444nzhAHJwAvtStvbgCMPi7Tc...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+652723  60                           z44uy84G444444br0CM444==  ...  get    0
+654252  60  z44uy84yzbduvXHq444F44i444444VaPki84u84444nF44...  ...  get    0
+654574  60               z44uy84G444444bDKXvK4464444yIIv444==  ...  get    0
+654988  60  z44uy84y444444wUpkSK4464444yIIvK4uN44448MPMoHP...  ...  get    0
+655528  60  z44uy84y444444Ik0L8F44i444444sK1eo84u84444nF44...  ...  get    0
+
+[1232 rows x 7 columns]
+finished:tenant_num_10-iter_0
+        ts                                                key  ...   op  ttl
+157      0  z44uy84y44444GAAKg8F44i444444snqMo84u84444nF44...  ...  get    0
+1287     0       z44uy84y44444vzR9L6n44M4444Fyo4F44444AHu444=  ...  get    0
+1796     0  z44uy84yzutwLsFWC44F44i444444s2rPi84u84444GF44...  ...  get    0
+2141     0  z44uy84y44444Kyo1sNF44i444444l3Si484u84444nF44...  ...  get    0
+2153     0  z44uy84y44444Kyo1sNF44i444444l3Si484u84444nF44...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+654993  60  z44uy84y44444wOOXz4K4464444yIIvK4uN44448vzMeHt...  ...  get    0
+655247  60  z44uy84yzMq9mBKIi44F44i4444443RIRo84u84444nF44...  ...  get    0
+655462  60  z44uy84yzZq4_0-q644F44i444444WP_ao84u84444nF44...  ...  get    0
+655924  60                   z44uy84G444444bWbAMn44M4444F444=  ...  get    0
+655947  60  z44uy84y444444GbpvnF44i444444lPF-o84u8444uvF44...  ...  get    0
+
+[1148 rows x 7 columns]
+finished:tenant_num_10-iter_1
+        ts                                                key  ...   op  ttl
+10       0  z44uy84yGUXUxyVVo4GF44i444444swzC884u844446F44...  ...  get    0
+423      0                   z44uy84yzKN5ikeVn44n44M4444y444=  ...  get    0
+450      0                   z44uy84yzKN5ikeVn44n44M4444y444=  ...  get    0
+846      0  z44uy84y444444UGU57F44i444444suioi84u8444uvF44...  ...  get    0
+1166     0               z44uy84G444444bjR-6K4464444yiOo444==  ...  get    0
+...     ..                                                ...  ...  ...  ...
+654926  60       z44uy84y44444423MA4n44M4444Fyo4F44444CIc444=  ...  get    0
+655063  60                           z44uy84G444444brgLV444==  ...  get    0
+655092  60                   z44uy84yyD6VxFvVd4Gn44M4444w444=  ...  get    0
+655525  60  z44uy84y444444KuTOdF44i444444wy-io84u8444uvF44...  ...  get    0
+656064  60                   z44uy84G444444bOYWVn44M4444y444=  ...  get    0
+
+[1360 rows x 7 columns]
+finished:tenant_num_10-iter_2
+        ts                                                key  ...   op  ttl
+17       0  z44uy84y44444ngAOACF44i444444s4-1484u84444CF44...  ...  get    0
+80       0  z44uy84yGUJ-ZxzV744F44i444444sxzGi84u84444nF44...  ...  get    0
+161      0                   z44uy84G444444bOb0on44M4444y444=  ...  get    0
+479      0  z44uy84y44444z1vOx4F44i444444sgweo84u8444uvF44...  ...  get    0
+495      0  z44uy84y44444z1vOx4F44i444444sgweo84u8444uvF44...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+655399  60               z44uy84G444444bOK3dK4464444ycA6444==  ...  get    0
+655401  60                   z44uy84G444444bdsbin44M4444y444=  ...  get    0
+655599  60               z44uy84G444444bOm7SK4464444yiVV444==  ...  get    0
+655739  60  z44uy84y444444NiZHVF44i4444443092484u844446F44...  ...  get    0
+655943  60                   z44uy84G444444bWbAMn44M4444F444=  ...  get    0
+
+[5325 rows x 7 columns]
+finished:tenant_num_50-iter_0
+        ts                                                key  ...   op  ttl
+114      0  z44uy84y4444445vUc6K4464444yIIvK4uN44448vtMXvz...  ...  get    0
+169      0  z44uy84y44444436VJ8F44i444444sidq884u84444nF44...  ...  get    0
+302      0  z44uy84y44444uGaoUCF44i444444sbXQo84u84444GF44...  ...  get    0
+306      0  z44uy84y444444GHWtGK4464444yIIvK4uN44448Hz8eHc...  ...  get    0
+320      0  z44uy84y44444vVd3x7F44i444444vtmCi84u84444nF44...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+655489  60  z44uy84yGUJ-ZxzV744F44i444444sxzGi84u84444nF44...  ...  get    0
+655700  60               z44uy84G444444hM0l6K4464444yxA4444==  ...  get    0
+655732  60                   z44uy84yy_IMESuIM44n44M4444G444=  ...  get    0
+655987  60  z44uy84yzWaQ6IVWV4GF44i444444lkl5o84u84444nF44...  ...  get    0
+656011  60               z44uy84G444444bt_OdK4464444ygIv444==  ...  get    0
+
+[5846 rows x 7 columns]
+finished:tenant_num_50-iter_1
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+        ts                                                key  ...   op  ttl
+302      0  z44uy84y44444uGaoUCF44i444444sbXQo84u84444GF44...  ...  get    0
+327      0  z44uy84y44444ujZp2OF44i4444443x1mi84u84444iF44...  ...  get    0
+403      0  z44uy84y44444uGaoUCF44i444444sbXQo84u84444GF44...  ...  get    0
+466      0  z44uy84y444444Gmv16K4464444yIIvK4uN44448M53J3c...  ...  get    0
+474      0  z44uy84y444444hvKm8K4464444ygOnK4uN44448vqV73P...  ...  get    0
+...     ..                                                ...  ...  ...  ...
+655831  60  z44uy84yzWUR0hoVv44F44i4444443v6ro84u84444nF44...  ...  get    0
+655859  60               z44uy84y444444y-6y6K4464444yiIV444==  ...  get    0
+655861  60  z44uy84y444444bHLwdK4uN44448TqMOvPMtHtR9Mc3YHb...  ...  get    0
+656036  60                   z44uy84G444444bOYWVn44M4444y444=  ...  get    0
+656055  60  z44uy84y444444GbpvnF44i444444lPFki84u8444uvF44...  ...  get    0
+
+[5587 rows x 7 columns]
+finished:tenant_num_50-iter_2
+          ts                                                key  ...   op  ttl
+824        0  z44uy84y444444s3h4iK4464444yIIvK4uN44448v5w9M5...  ...  get    0
+1047       0  z44uy84y444444s3h4iK4464444yIIvK4uN44448v5w9M5...  ...  get    0
+4942       1                   z44uy84G444444bOYWVn44M4444y444=  ...  get    0
+10647      1  z44uy84yyfjXiNPWn44K4uN444483qM53bwCHqiO3q39Hb...  ...  get    0
+21838      2                           z44uy84G444444bOYeN444==  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9577691  900  z44uy84y44444yGc-W4F44i444444l2Lj484u84444nF44...  ...  get    0
+9578164  900  z44uy84y44444T_cg9GF44i444444lmh2o84u84444nF44...  ...  get    0
+9578721  900               z44uy84yyrIAE7ZqG44K4464444yVGo444==  ...  get    0
+9586536  900  z44uy84yzS7sWdvIo4GF44i444444ctPao84u84444nF44...  ...  get    0
+9587708  900  z44uy84yGzsV_m5VG44F44i444444suJCo84u8444uvF44...  ...  get    0
+
+[2048 rows x 7 columns]
+finished:tenant_num_1-iter_0
+          ts                                                key  ...   op  ttl
+128401    12       z44uy84y44444423MA4n44M4444Fyo4F44444CIc444=  ...  get    0
+139939    13  z44uy84y44444FH_y1VF44i444444lOjio84u84444nF44...  ...  get    0
+141592    13  z44uy84y444444T06nGF44i444444Icfao84u8444uvF44...  ...  get    0
+146826    14       z44uy84yzgzeu7DIo4Gn44M4444wyo4F44444CQi444=  ...  get    0
+149083    14  z44uy84y44444u87PpCF44i444444sF7do84u84444nF44...  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9545107  896       z44uy84yzNs6natVo4Gn44M4444yyo4F44444CQi444=  ...  get    0
+9547371  897  z44uy84y44444KSKYfGK4uN444483bg93zAAHqn7vcMOHz...  ...  get    0
+9548103  897  z44uy84yGKisOrAVV44F44i444444lZ2o884u84444GF44...  ...  get    0
+9550159  897               z44uy84G444444GN7YVK4464444yiIV444==  ...  get    0
+9575306  899  z44uy84yzmn3dC2q74GF44i444444IgaY884u84444nF44...  ...  get    0
+
+[1324 rows x 7 columns]
+finished:tenant_num_1-iter_1
+          ts                                                key  ...   op  ttl
+14915      1  z44uy84y44444wDbALnF44i444444INDB884u8444uvF44...  ...  get    0
+16561      2               z44uy84G444444bOK3dK4464444ycA6444==  ...  get    0
+19224      2  z44uy84yydHpOByVn44F44i444444MpmX484u844446F44...  ...  get    0
+21863      2  z44uy84y444444T06nGF44i444444Icfao84u8444uvF44...  ...  get    0
+21882      2  z44uy84y44444yNO6E7K4464444yIIvK4uN44448Mqit3z...  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9536511  896  z44uy84yGg59jicVS4GF44i444444sHlEo84u84444nF44...  ...  get    0
+9548034  897                           z44uy84y444444T8GpN444==  ...  get    0
+9559222  898  z44uy84y44444KlViAvK4uN44448TqV5M5irHqw9HtA9Hb...  ...  get    0
+9564990  898                   z44uy84G444444bOHCOn44M4444w444=  ...  get    0
+9569629  899  z44uy84y444444M_9lOF44i444444lOB-o84u84444nF44...  ...  get    0
+
+[1893 rows x 7 columns]
+finished:tenant_num_1-iter_2
+          ts                                                key  ...   op  ttl
+17         0  z44uy84y44444ngAOACF44i444444s4-1484u84444CF44...  ...  get    0
+47868      5       z44uy84yzcpZzqGWO4Gn44M4444yyo4F44444CAT444=  ...  get    0
+49955      5  z44uyo4F44444AIcyo4f4444nzMLHJiX3P4XHtgP3PiXHP...  ...  get    0
+55996      5       z44uy84yGiQCr8uqd44n44M4444Fyo4F44444AHu444=  ...  get    0
+58498      6  z44uyo4F44444AIcyo4f4444nzhAHJwAvtStvbgCMPi7Tc...  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9485378  891  z44uy84yzbduvXHq444F44i444444VaPki84u84444nF44...  ...  get    0
+9492038  891       z44uy84y444444sJXXVn44M4444yyo4F44444CHu444=  ...  get    0
+9492658  891                   z44uy84G444444bjCMCn44M4444y444=  ...  get    0
+9493354  892       z44uy84yzEWj7CuId44n44M4444yyo4F44444C0l444=  ...  get    0
+9494110  892                           z44uy84G444444br0CM444==  ...  get    0
+
+[2499 rows x 7 columns]
+finished:tenant_num_2-iter_0
+          ts                                                key  ...   op  ttl
+709        0  z44uy84yy_764a9W844K4464444yIIvK4uN44448vzvLHJ...  ...  get    0
+3147       0  z44uy84yz6FteUkI744F44i444444sH3G484u8444uvF44...  ...  get    0
+3498       0  z44uy84y44444uGvndVF44i444444sv2Ai84u84444CF44...  ...  get    0
+5024       1  z44uy84yzfbqpxmWV44F44i444444s4sai84u84444nF44...  ...  get    0
+5776       1  z44uy84yzNXy50bVM44F44i444444sKT8o84u84444GF44...  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9539041  896                   z44uy84G444444bD_tvn44M4444G444=  ...  get    0
+9555815  897                   z44uy84G444444bOb0on44M4444y444=  ...  get    0
+9560684  898  z44uy84y44444upN6QSF44i444444sF1V884u84444nF44...  ...  get    0
+9584429  900  z44uy84y44444zxpaaiK4464444yIIvK4uN444483P85vt...  ...  get    0
+9587229  900  z44uy84yzW72VJ0I44GF44i444444sKfji84u84444nF44...  ...  get    0
+
+[3431 rows x 7 columns]
+finished:tenant_num_2-iter_1
+          ts                                                key  ...   op  ttl
+2387       0  z44uy84yy_BUeABIo4nF44i444444sTFI484u84444CF44...  ...  get    0
+6558       1               z44uy84y444444TsYFVK4464444yxV7444==  ...  get    0
+10689      1                   z44uy84G444444bZ4Tnn44M4444w444=  ...  get    0
+12474      1  z44uy84y444444nadg6F44i444444sibni84u84444nF44...  ...  get    0
+12885      1  z44uy84y444444G8_97n44M4444yyo4F4444yIHfiVehVC...  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9582162  900  z44uy84yy0edBJUWv44F44i444444lXnz484u84444CF44...  ...  get    0
+9582610  900                   z44uy84yyE2rD_ZV444n44M4444u444=  ...  get    0
+9585632  900  z44uy84y44444Tl_FVVK4464444yIIvK4uN44448MPHP3P...  ...  get    0
+9585771  900               z44uy84y44444wv8ZZ7K4464444yxV7444==  ...  get    0
+9588130  900  z44uyo4F44444AIcyo4f4444nzAPTzVXH5nevPvXvci53J...  ...  get    0
+
+[2842 rows x 7 columns]
+finished:tenant_num_2-iter_2
+          ts                                                key  ...   op  ttl
+14903      1               z44uy84G444444hqx7CK4464444yIIv444==  ...  get    0
+15709      2  z44uy84y44444xqTDSdK4464444yIIvK4uN44448MP4ovq...  ...  get    0
+16264      2  z44uy84yGUJ-ZxzV744F44i444444sxzGi84u84444nF44...  ...  get    0
+18512      2  z44uy84y44444n_d0n4F44i444444qTbsi84u84444GF44...  ...  get    0
+20979      2               z44uy84yz901Q5dqd4nK4464444ygAn444==  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9574653  899                           z44uy84G444444bJWwS444==  ...  get    0
+9576021  899       z44uy84y444444wSzUGn44M4444Fyo4F44444ChI444=  ...  get    0
+9577891  900  z44uy84y444444wZc5SK4uN44448HtM0Hz8OHP87HqhAHz...  ...  get    0
+9580872  900  z44uy84y44444UKy7G6F44i444444s2Zio84u84444nF44...  ...  get    0
+9586560  900  z44uy84y44444vU7-T7K4uN44448H5v5HcCrHbg9v5MtHz...  ...  get    0
+
+[3801 rows x 7 columns]
+finished:tenant_num_3-iter_0
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+/home/jhlu/resalloc/deal.py:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_data['op'] = final_data.apply(update_operation, axis=1)
+          ts                                                key  ...   op  ttl
+878        0       z44uy84y44444nqT0-vn44M4444yyo4F44444CeM444=  ...  get    0
+1227       0  z44uy84y44444vFDFsMF44i444444WRfHo84u84444nF44...  ...  get    0
+3654       0       z44uy84y444444UU8QOn44M4444yyo4F44444CHv444=  ...  get    0
+5910       1  z44uy84yGiuZZxeWO4nF44i444444sKgsi84u84444CF44...  ...  get    0
+6008       1       z44uy84y444444mitQOn44M4444yyo4F44444Agn444=  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9585984  900  z44uy84y44444yNO6E7F44i444444lbeGi84u84444nF44...  ...  get    0
+9586652  900  z44uy84y444444wpcC6F44i444444svkui84u8444uvF44...  ...  get    0
+9587677  900  z44uy84yzZq4_0-q644F44i444444WP_ao84u84444nF44...  ...  get    0
+9587694  900  z44uy84yzZq4_0-q644F44i444444WP_ao84u84444nF44...  ...  get    0
+9588135  900  z44uyo4F44444AIcyo4f4444nzvtHcRJvPiXTPCL3cMLvb...  ...  get    0
+
+[5180 rows x 7 columns]
+finished:tenant_num_3-iter_1
+          ts                                                key  ...   op  ttl
+2739       0                   z44uy84y444444KcVfNn44M4444u444=  ...  get    0
+5023       1                   z44uy84G444444bLfQdn44M4444u444=  ...  get    0
+9901       1  z44uyo4F44444AIcyo4f4444nzvtHcRJvPiXTPCL3cMLvb...  ...  get    0
+11419      1                   z44uy84G444444bLE6Mn44M4444y444=  ...  get    0
+11849      1                   z44uy84G444444btpYCn44M4444y444=  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9535715  896                           z44uy84y444444UjH7S444==  ...  get    0
+9539264  896  z44uy84y444444Svh1iF44i444444lNzHi84u84444nF44...  ...  get    0
+9544716  896       z44uy84yzQcwMXBWV4GK4464444ycCNn4yi4444y444=  ...  get    0
+9548113  897  z44uy84y44444KCB167F44i444444sgxdo84u84444GF44...  ...  get    0
+9555006  897  z44uy84y44444u87PpCF44i444444sF7do84u84444nF44...  ...  get    0
+
+[5686 rows x 7 columns]
+finished:tenant_num_3-iter_2
+          ts                                                key  ...   op  ttl
+1780       0  z44uy84y44444wwWkzOF44i444444sUGxo84u84444nF44...  ...  get    0
+1898       0  z44uy84y44444yGNI5dK4464444yIIvK4uN44448Ht39vz...  ...  get    0
+2420       0  z44uy84y444444NbGWnK4464444yIIvK4uN44448H5HY3P...  ...  get    0
+3046       0       z44uy84y44444bu8Wyin44M4444Fyo4F44444AIc444=  ...  get    0
+3612       0                   z44uy84G444444btpYCn44M4444y444=  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9586456  900                   z44uy84y44444vVMS3Cn44M4444y444=  ...  get    0
+9586886  900                   z44uy84y44444vVMS3Cn44M4444y444=  ...  get    0
+9587036  900                   z44uy84y44444vVMS3Cn44M4444y444=  ...  get    0
+9587043  900  z44uy84y44444yxRVf4F44i444444M_HG484u84444nF44...  ...  get    0
+9587302  900               z44uy84G444444bOIa4K4464444yiIn444==  ...  get    0
+
+[16646 rows x 7 columns]
+finished:tenant_num_10-iter_0
+          ts                                                key  ...   op  ttl
+1053       0       z44uy84y44444u6erkiK4464444yIIvn4yi4444z444=  ...  get    0
+2422       0                           z44uy84G444444bJWwS444==  ...  get    0
+2636       0       z44uy84yzaXcc_eqC44n44M4444cyo4F44444CHu444=  ...  get    0
+4343       0  z44uy84y44444w8gUXOK4uN44448HqwY3Pn7McMtMt4oHz...  ...  get    0
+4592       1  z44uy84y444444SpoeMF44i444444sv8M884u84444GF44...  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9585230  900               z44uy84G444444bOVZvK4464444yIhn444==  ...  get    0
+9586363  900  z44uyo4F44444AIcyo4f4444nbV7HtMX3Pi5MchJHPiL3q...  ...  get    0
+9587477  900  z44uy84yz0DwWDbqC44F44i444444l_IJi84u84444nF44...  ...  get    0
+9587502  900  z44uy84yz0DwWDbqC44F44i444444l_IJi84u84444nF44...  ...  get    0
+9587713  900                   z44uy84G444444br3jMn44M4444y444=  ...  get    0
+
+[15658 rows x 7 columns]
+finished:tenant_num_10-iter_1
+          ts                                                key  ...   op  ttl
+98         0  z44uy84y44444uLu2f4K4uN44448TbVeHJvXMqh93ci0Hz...  ...  get    0
+1930       0  z44uy84y44444ujZp2OF44i4444443x1mi84u84444iF44...  ...  get    0
+2194       0       z44uy84y444444Mxvoin44M4444Gyo4F44444AIc444=  ...  get    0
+5233       1                   z44uy84G444444bOYDSn44M4444y444=  ...  get    0
+5759       1       z44uy84yzcpZzqGWO4Gn44M4444yyo4F44444CAT444=  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9584294  900                   z44uy84G444444bQT2Sn44M4444y444=  ...  get    0
+9584721  900  z44uy84y444444zkuMdF44i444444svfX484u84444CF44...  ...  get    0
+9585550  900  z44uy84y444444hyWZ6K4464444yxV7K4uN44448HPR9Tb...  ...  get    0
+9586331  900  z44uy84yGyPMkjCVO44F44i444444lUzVo84u84444CF44...  ...  get    0
+9588122  900                   z44uy84G444444btJW8n44M4444y444=  ...  get    0
+
+[18069 rows x 7 columns]
+finished:tenant_num_10-iter_2
+          ts                                                key  ...   op  ttl
+199        0  z44uy84y44444FohREvK4464444yIIvK4uN444483zRC3c...  ...  get    0
+625        0  z44uy84y444444zl55GK4464444yIIvK4uN44448MPMoHP...  ...  get    0
+845        0  z44uy84y44444u8NHyoK4464444yIIvK4uN44448HqVt3P...  ...  get    0
+885        0  z44uy84yz3Y5VKZIv44F44i444444lCkho84u84444CF44...  ...  get    0
+908        0  z44uy84yz3Y5VKZIv44F44i444444lCkho84u84444CF44...  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9587964  900               z44uy84y44444FPX8xMK4464444yiIn444==  ...  get    0
+9587971  900                   z44uy84y44444KjY0kMn44M4444w444=  ...  get    0
+9588015  900  z44uy84yz72hcCNVS4GF44i444444si6O484u84444nF44...  ...  get    0
+9588058  900       z44uy84y44444xb8kSGn44M4444Fyo4F44444AIc444=  ...  get    0
+9588159  900  z44uyo4F44444AIcyo4f4444nzAPTzVXH5nevPvXvci53J...  ...  get    0
+
+[75071 rows x 7 columns]
+finished:tenant_num_50-iter_0
+          ts                                                key  ...   op  ttl
+137        0       z44uy84y44444nqT0-vn44M4444yyo4F44444CeM444=  ...  get    0
+226        0                   z44uy84yG2lOeYPVO44n44M4444u444=  ...  get    0
+385        0  z44uy84yyl2eqYvVV44K4464444yIIvK4uN44448Mcv0Tz...  ...  get    0
+506        0               z44uy84G444444bOVZvK4464444yIhn444==  ...  get    0
+588        0  z44uy84y444444PE1XNF44i444444vogW484u84444nF44...  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9587732  900                           z44uy84G444444bIv0M444==  ...  get    0
+9587803  900       z44uy84y44444xb8kSGn44M4444Fyo4F44444AIc444=  ...  get    0
+9587804  900               z44uy84G444444bt2sOK4464444yxA4444==  ...  get    0
+9588069  900  z44uy84y444442RcV6NK4464444yIIvK4uN444483biovc...  ...  get    0
+9588319  900  z44uy84y44444hypk5oF44i444444szmD884u8444uvF44...  ...  get    0
+
+[82335 rows x 7 columns]
+finished:tenant_num_50-iter_1
+          ts                                                key  ...   op  ttl
+4          0  z44uy84y444444wpcC6F44i444444svkui84u8444uvF44...  ...  get    0
+37         0                   z44uy84G444444brKS6n44M4444y444=  ...  get    0
+142        0  z44uy84y4444442MVnNF44i444444szPu484u8444uvF44...  ...  get    0
+143        0  z44uy84y44444Kyo1sNF44i444444l3Si484u84444nF44...  ...  get    0
+203        0                           z44uy84G444444h_mJO444==  ...  get    0
+...      ...                                                ...  ...  ...  ...
+9587870  900               z44uy84G444444bQ9BVK4464444ygGd444==  ...  get    0
+9587950  900  z44uy84yzBD9lq2qO44K4uN44448vtGeMqIC3z4ovtiLHb...  ...  get    0
+9588125  900                   z44uy84y44444vVMS3Cn44M4444y444=  ...  get    0
+9588177  900               z44uy84G444444hg-16K4464444yiOG444==  ...  get    0
+9588302  900                   z44uy84G444444bRZrOn44M4444y444=  ...  get    0
+
+[80866 rows x 7 columns]
+finished:tenant_num_50-iter_2
