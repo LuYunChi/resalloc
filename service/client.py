@@ -19,11 +19,10 @@ class CacheClient:
         self.lock.acquire()
         hit = self.allocator.key_in_cache(tntid, key)
         if hit:
+            self.allocator.inform_use(tntid, key)
             if iswrite:
-                self.allocator.inform_use(tntid, key)
                 self._write_redis(tntid, key, val)
             else:
-                self.allocator.inform_use(tntid, key)
                 self._read_redis(tntid, key)
         else:
             if self.allocator.cache_isfull():

@@ -7,7 +7,8 @@ from typing import List, Dict, Tuple
 from tenant.tenant import Tenant
 from service.server import CacheServer
 from service.scheme import CacheScheme, BackingStoreScheme
-from service.allocator.lru import GlobalLRU
+from service.allocator.global_pooled_lru import GlobalPooledLRU
+from service.allocator.maxmin import Maxmin
 
 
 def parse_tenants(df) -> List[Tenant]:
@@ -56,7 +57,7 @@ def main(tenants: List[Tenant], cache_scheme: CacheScheme, backingstore_scheme: 
         else:
             df = pd.concat([df, tnt_df], ignore_index=True)
 
-    dst = f"results/{get_trace_name(trace_file)}_{svr.cache_client.allocator.name}_t{tnt.tntid}.csv"
+    dst = f"results/{get_trace_name(trace_file)}_{svr.cache_client.allocator.name}.csv"
     df.to_csv(dst, index=False)
 
 
@@ -72,11 +73,13 @@ def setup_cache_size(trace_df, cache_ratio) -> int:
 
 
 if __name__ == "__main__":
-    trace_file = "/home/yunchi/582/resalloc/data/memcached/dummy_q5000_d60_t3.csv"
+    # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant3_time0-60_iter0.csv"
+    trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant2_time0-10_iter0.csv"
     latency_mu = 1
     latency_sigma = 0
-    cache_ratio = 1
-    allocator_class = GlobalLRU
+    cache_ratio = 0.5
+    # allocator_class = GlobalPooledLRU
+    allocator_class = Maxmin
 
     trace_df = pd.read_csv(trace_file)
     tenants = parse_tenants(trace_df)

@@ -1,3 +1,4 @@
+import time
 from typing import Tuple
 
 from service.scheme import CacheScheme
@@ -5,22 +6,22 @@ from service.allocator.abstract import Allocator
 
 
 class CacheObject:
-    def __init__(self, tntid, key) -> None:
+    def __init__(self, tntid, key, create_time, ttl) -> None:
         self.tntid = tntid
         self.key = key
+        self.last_used = create_time
+        self.ttl = ttl
 
         self.pre: CacheObject = None
         self.next: CacheObject = None
 
 
-class GlobalLRU(Allocator):
-    def __init__(self, scheme: CacheScheme) -> None:
-        self.name = "GlobalLRU"
-        self.scheme = scheme
-
+class LRULinkedList:
+    def __init__(self) -> None:
+        self.name = "LRULinkedList"
         self.cache_cnt = 0
-        self.head = CacheObject(None, None)
-        self.tail = CacheObject(None, None)
+        self.head = CacheObject(None, None, None, None)
+        self.tail = CacheObject(None, None, None, None)
         self.head.next = self.tail
         self.tail.pre = self.head
 
@@ -36,10 +37,6 @@ class GlobalLRU(Allocator):
         """ return whether key is in cache """
         return self._get_ptr(tntid, key) is not None
 
-    def cache_isfull(self) -> bool:
-        """ return whether cache is full """
-        return self.cache_cnt >= self.scheme.cache_size
-
     def _insert_front(self, co: CacheObject) -> None:
         co.pre = self.head
         co.next = self.head.next
@@ -50,22 +47,22 @@ class GlobalLRU(Allocator):
         """ called when a key is read or updated; only update last use ts """
         ptr = self._get_ptr(tntid, key)
         assert ptr is not None
+        ptr.last_used = time.time()
         ptr.pre.next = ptr.next
         ptr.next.pre = ptr.pre
         self._insert_front(ptr)
 
     def inform_set(self, tntid, key, ttl) -> None:
         """ called when a new key is brought into cache """
-        assert self.cache_cnt < self.cache_size, f"{self.cache_cnt, self.cache_size}"
         self.cache_cnt += 1
-        co = CacheObject(tntid, key)
+        co = CacheObject(tntid, key, time.time(), ttl)
         self._insert_front(co)
 
     def arbit_evict(self, tntid, key) -> Tuple[str, str]:
         """ called when a new key should be brought in and cache is full """
-        assert self.cache_cnt == self.cache_size
         self.cache_cnt -= 1
         last = self.tail.pre
+        assert last.tntid is not None and last.key is not None
         last.pre.next = last.next
         last.next.pre = last.pre
         evict_tntid = last.tntid
