@@ -101,7 +101,7 @@ class AMShare(Allocator):
 
     def inform_set(self, tntid, key, ttl) -> None:
         """ called when a new key is brought into cache """
-        # cc0 = self._cache_cnt()
+        cc0 = self._cache_cnt()
         key_in_victim = self._find_in_vq(tntid, key)
         if key_in_victim:
             co = CacheObject(tntid, key, time.time(),
@@ -110,10 +110,10 @@ class AMShare(Allocator):
         else:
             co = CacheObject(tntid, key, time.time(), EntryStatus.IN_SMALL, 1)
             self._append_sq(co)
-        # assert self._cache_cnt() == cc0 + 1
+        assert self._cache_cnt() == cc0 + 1
 
     def _append_sq(self, co: CacheObject) -> None:
-        # cc0 = self._cache_cnt()
+        cc0 = self._cache_cnt()
         tntid = co.tntid
         self.small_qs[tntid].append(co)
         if len(self.small_qs[tntid]) > self.sq_size:
@@ -121,7 +121,7 @@ class AMShare(Allocator):
             self.small_qs[tntid] = self.small_qs[tntid][1:]
             pop.status = EntryStatus.IN_MAIN_FULL if pop.use_cnt > 1 else EntryStatus.IN_MAIN_DEMOTABLE
             self.main_cache.append(pop)
-        # assert self._cache_cnt() == cc0 + 1
+        assert self._cache_cnt() == cc0 + 1
 
     def _append_vq(self, tntid, key) -> None:
         self.victim_qs[tntid].append(key)
@@ -131,7 +131,7 @@ class AMShare(Allocator):
 
     def arbit_evict(self, tntid, key) -> Tuple[str, str]:
         """ called when a new key should be brought in and cache is full """
-        # cc0 = self._cache_cnt()
+        cc0 = self._cache_cnt()
         # get victim tenant candidates
         tenant_cachecnts: Dict[str, int] = defaultdict(int)
         for t, q in self.small_qs.items():
@@ -149,17 +149,17 @@ class AMShare(Allocator):
             _, i, etntid, ekey = sorted(demotable)[0]
             self._append_vq(etntid, ekey)
             self.main_cache = self.main_cache[:i] + self.main_cache[i+1:]
-            # assert self._cache_cnt() == cc0 - 1
+            assert self._cache_cnt() == cc0 - 1
             return etntid, ekey
         # to reach here, all entries in main cache are frequently accessed
         # first, look at smallq of the inserting tenant
-        if tntid in victen_cands:
+        if tntid in victen_cands and len(self.small_qs[tntid]) == self.sq_size:
             assert self.small_qs[tntid], f"{self.small_qs}, {tenant_cachecnts}, {victen_cands}"
             head = self.small_qs[tntid][0]
             if head.use_cnt == 1:
                 self.small_qs[tntid] = self.small_qs[tntid][1:]
                 self._append_vq(head.tntid, head.key)
-                # assert self._cache_cnt() == cc0 - 1
+                assert self._cache_cnt() == cc0 - 1
                 return head.tntid, head.key
         # then, evict from IN_MAIN_FULL
         evictable = []
@@ -169,5 +169,5 @@ class AMShare(Allocator):
         _, i, etntid, ekey = sorted(evictable)[0]
         self._append_vq(etntid, ekey)
         self.main_cache = self.main_cache[:i] + self.main_cache[i+1:]
-        # assert self._cache_cnt() == cc0 - 1
+        assert self._cache_cnt() == cc0 - 1
         return etntid, ekey
