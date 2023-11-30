@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -7,43 +8,43 @@ WINDOW_SIZE = 5
 def compare_tnts(df, dst):
     tnts = set(df["tntid"])
 
-    fig, axs = plt.subplots(2, 3, figsize=(12, 6))
+    fig, axs = plt.subplots(2, 2, figsize=(12, 6))
 
     # respective tps
-    for t in tnts:
-        d = df[df["tntid"] == t]
-        x, y = get_tps(d)
-        axs[0, 0].plot(x, y, label=t, marker='o')
-    axs[0, 0].set_title('Respective Throughput')
+    # for t in tnts:
+    #     d = df[df["tntid"] == t]
+    #     x, y = get_tps(d)
+    #     axs[0, 0].plot(x, y, label=t, marker='o')
+    # axs[0, 0].set_title('Respective Throughput')
 
     # respective lats
     for t in tnts:
         d = df[df["tntid"] == t]
         x, y = get_lats(d)
-        axs[0, 1].plot(x, y, label=t, marker='o')
-    axs[0, 1].set_title('Respective Latencies')
+        axs[0, 0].plot(x, y, label=t, marker='o')
+    axs[0, 0].set_title('Respective Latencies')
 
     # respective hrs
     for t in tnts:
         d = df[df["tntid"] == t]
         x, y = get_hrs(d)
-        axs[0, 2].plot(x, y, label=t, marker='o')
-    axs[0, 2].set_title('Respective Hit Rates')
+        axs[0, 1].plot(x, y, label=t, marker='o')
+    axs[0, 1].set_title('Respective Hit Rates')
 
-    # overall tps
-    x, y = get_tps(df)
-    axs[1, 0].plot(x, y)
-    axs[1, 0].set_title('Overall Throughput')
+    # # overall tps
+    # x, y = get_tps(df)
+    # axs[1, 0].plot(x, y)
+    # axs[1, 0].set_title('Overall Throughput')
 
     # overall lats
     x, y = get_lats(df)
-    axs[1, 1].plot(x, y)
-    axs[1, 1].set_title('Overall Latencies')
+    axs[1, 0].plot(x, y)
+    axs[1, 0].set_title('Overall Latencies')
 
     # overall hrs
     x, y = get_hrs(df)
-    axs[1, 2].plot(x, y)
-    axs[1, 2].set_title('Overall Hit Rates')
+    axs[1, 1].plot(x, y)
+    axs[1, 1].set_title('Overall Hit Rates')
 
     # save
     plt.tight_layout()
@@ -80,11 +81,23 @@ def get_hrs(df, ws=WINDOW_SIZE):
         d = df[(t-ws < df["finish_ts"]) & (df["finish_ts"] <= t)]
         h = d[d["hit"] == True].count()/ws
         hrs.append(h)
+        print(h)
     return ts, hrs
 
 
+# if __name__ == "__main__":
+#     path = "/home/yunchi/582/resalloc/results/selected_data_tenant3_time0-60_iter0_GlobalLRU.csv"
+#     df = pd.read_csv(path)
+#     compare_tnts(df, path.replace(".csv", ".png"))
 if __name__ == "__main__":
-    path = "/home/yunchi/582/resalloc/results/selected_data_tenant3_time0-60_iter0_GlobalLRU.csv"
+    folder = "/home/yunchi/582/resalloc/results"
+    skip_exists = False
 
-    df = pd.read_csv(path)
-    compare_tnts(df, path.replace(".csv", ".png"))
+    for file in os.listdir(folder):
+        path = os.path.join(folder, file)
+        if path.endswith(".png"):
+            continue
+        if os.path.exists(path.replace(".csv", ".png")) and skip_exists:
+            continue
+        df = pd.read_csv(path)
+        compare_tnts(df, path.replace(".csv", ".png"))

@@ -9,6 +9,7 @@ from service.server import CacheServer
 from service.scheme import CacheScheme, BackingStoreScheme
 from service.allocator.global_pooled_lru import GlobalPooledLRU
 from service.allocator.maxmin import Maxmin
+from service.allocator.amshare import AMShare
 
 
 def parse_tenants(df) -> List[Tenant]:
@@ -74,12 +75,16 @@ def setup_cache_size(trace_df, cache_ratio) -> int:
 
 if __name__ == "__main__":
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant3_time0-60_iter0.csv"
-    trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant2_time0-10_iter0.csv"
+    # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant2_time0-10_iter0.csv"
+    # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant3_time0-900_iter0.csv"
+    trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant10_time0-900_iter0.csv"
+
     latency_mu = 1
     latency_sigma = 0
     cache_ratio = 0.5
-    # allocator_class = GlobalPooledLRU
+    allocator_class = GlobalPooledLRU
     allocator_class = Maxmin
+    allocator_class = AMShare
 
     trace_df = pd.read_csv(trace_file)
     tenants = parse_tenants(trace_df)
