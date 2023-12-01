@@ -79,13 +79,14 @@ if __name__ == "__main__":
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant2_time0-10_iter0.csv"
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant3_time0-900_iter0.csv"
     trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant10_time0-900_iter0.csv"
+    # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant50_time0-900_iter0.csv"
 
-    latency_mu = 1
+    latency_mu = 3
     latency_sigma = 0
-    cache_ratio = 0.2
+    cache_ratio = 0.05
     allocator_class = GlobalPooledLRU
-    # allocator_class = Maxmin
-    # allocator_class = AMShare
+    allocator_class = Maxmin
+    allocator_class = AMShare
 
     trace_df = pd.read_csv(trace_file)
     tenants = parse_tenants(trace_df)
