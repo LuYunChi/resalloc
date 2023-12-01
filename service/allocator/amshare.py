@@ -34,16 +34,16 @@ class AMShare(Allocator):
 
     @property
     def sq_size(self):
-        return int(self.scheme.cache_size
+        return max(1, int(self.scheme.cache_size
                    / self.scheme.num_tenants
                    * self.scheme.guarantee_ratio
-                   * self.scheme.smallq_size_ratio)
+                   * self.scheme.smallq_size_ratio))
 
     @property
     def guar_size(self):
-        return int(self.scheme.cache_size
+        return max(1, int(self.scheme.cache_size
                    / self.scheme.num_tenants
-                   * self.scheme.guarantee_ratio)
+                   * self.scheme.guarantee_ratio))
 
     def _find_in_sq(self, tntid, key) -> Optional[CacheObject]:
         for co in self.small_qs[tntid]:
