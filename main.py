@@ -58,7 +58,8 @@ def main(tenants: List[Tenant], cache_scheme: CacheScheme, backingstore_scheme: 
         else:
             df = pd.concat([df, tnt_df], ignore_index=True)
 
-    dst = f"results/{get_trace_name(trace_file)}_{svr.cache_client.allocator.name}.csv"
+    dst = f"results/lat{backingstore_scheme.latency_mu}_cr{cache_scheme.cache_ratio}/{get_trace_name(trace_file)}_{svr.cache_client.allocator.name}.csv"
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
     df.to_csv(dst, index=False)
 
 
@@ -67,7 +68,7 @@ def get_trace_name(trace_file: str) -> str:
 
 
 def setup_cache_size(trace_df, cache_ratio) -> int:
-    num_keys = len(set(trace_df["key"]))
+    num_keys = len(trace_df[["key", "tntid"]].drop_duplicates())
     cache_size = int(num_keys * cache_ratio)
     print("cache size:", cache_size)
     return cache_size
@@ -81,15 +82,16 @@ if __name__ == "__main__":
 
     latency_mu = 1
     latency_sigma = 0
-    cache_ratio = 0.5
+    cache_ratio = 0.2
     allocator_class = GlobalPooledLRU
-    allocator_class = Maxmin
-    allocator_class = AMShare
+    # allocator_class = Maxmin
+    # allocator_class = AMShare
 
     trace_df = pd.read_csv(trace_file)
     tenants = parse_tenants(trace_df)
 
     cscheme = CacheScheme(
+        cache_ratio=cache_ratio,
         cache_size=setup_cache_size(trace_df, cache_ratio),
         num_tenants=len(tenants),
         allocator_class=allocator_class)
