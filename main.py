@@ -80,23 +80,20 @@ if __name__ == "__main__":
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant3_time0-900_iter0.csv"
     trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant10_time0-900_iter0.csv"
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant50_time0-900_iter0.csv"
-
-    latency_mu = 3
     latency_sigma = 0
-    cache_ratio = 0.05
-    allocator_class = GlobalPooledLRU
-    allocator_class = Maxmin
-    allocator_class = AMShare
+    for latency_mu in [1,3,5,7]:
+        for cache_ratio in [0.05,0.1,0.2,0.3]:
+            for allocator_class in [GlobalPooledLRU,Maxmin,AMShare]:
 
-    trace_df = pd.read_csv(trace_file)
-    tenants = parse_tenants(trace_df)
-
-    cscheme = CacheScheme(
-        cache_ratio=cache_ratio,
-        cache_size=setup_cache_size(trace_df, cache_ratio),
-        num_tenants=len(tenants),
-        allocator_class=allocator_class)
-    bscheme = BackingStoreScheme(
-        latency_mu=latency_mu,
-        latency_sigma=latency_sigma)
-    main(tenants, cscheme, bscheme)
+                trace_df = pd.read_csv(trace_file)
+                tenants = parse_tenants(trace_df)
+            
+                cscheme = CacheScheme(
+                    cache_ratio=cache_ratio,
+                    cache_size=setup_cache_size(trace_df, cache_ratio),
+                    num_tenants=len(tenants),
+                    allocator_class=allocator_class)
+                bscheme = BackingStoreScheme(
+                    latency_mu=latency_mu,
+                    latency_sigma=latency_sigma)
+                main(tenants, cscheme, bscheme)
