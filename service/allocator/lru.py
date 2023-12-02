@@ -1,5 +1,5 @@
 import time
-from typing import Tuple
+from typing import Optional, Tuple
 
 from service.scheme import CacheScheme
 from service.allocator.abstract import Allocator
@@ -69,3 +69,9 @@ class LRULinkedList:
         evict_key = last.key
         del last
         return evict_tntid, evict_key
+
+    def oldest_time(self) -> Optional[float]:
+        co = self.tail.pre
+        if co is self.head:
+            return None
+        return co.last_used

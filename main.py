@@ -10,6 +10,7 @@ from service.scheme import CacheScheme, BackingStoreScheme
 from service.allocator.global_pooled_lru import GlobalPooledLRU
 from service.allocator.maxmin import Maxmin
 from service.allocator.amshare import AMShare
+from service.allocator.memshare import Memshare
 
 
 def parse_tenants(df) -> List[Tenant]:
@@ -77,17 +78,18 @@ def setup_cache_size(trace_df, cache_ratio) -> int:
 if __name__ == "__main__":
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant10_time0-60_iter0.csv"
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant2_time0-10_iter0.csv"
-    # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant3_time0-900_iter0.csv"
-    trace_file = "data/trace/selected_data_tenant10_time0-900_iter0.csv"
+    # trace_file = "data/trace/selected_data_tenant3_time0-900_iter0.csv"
+    # trace_file = "data/trace/selected_data_tenant10_time0-900_iter0.csv"
+    trace_file = "data/trace/selected_data_tenant2_time0-900_iter0.csv"
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant50_time0-900_iter0.csv"
     latency_sigma = 0
-    for latency_mu in [1,3,5,7]:
-        for cache_ratio in [0.05,0.1,0.2,0.3]:
-            for allocator_class in [GlobalPooledLRU,Maxmin,AMShare]:
+    for latency_mu in [3]:
+        for cache_ratio in [0.5]:
+            for allocator_class in [GlobalPooledLRU, Maxmin, AMShare, Memshare]:
 
                 trace_df = pd.read_csv(trace_file)
                 tenants = parse_tenants(trace_df)
-            
+
                 cscheme = CacheScheme(
                     cache_ratio=cache_ratio,
                     cache_size=setup_cache_size(trace_df, cache_ratio),
