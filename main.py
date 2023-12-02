@@ -78,7 +78,7 @@ if __name__ == "__main__":
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant10_time0-60_iter0.csv"
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant2_time0-10_iter0.csv"
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant3_time0-900_iter0.csv"
-    trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant10_time0-900_iter0.csv"
+    trace_file = "data/trace/selected_data_tenant10_time0-900_iter0.csv"
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant50_time0-900_iter0.csv"
     latency_sigma = 0
     for latency_mu in [1,3,5,7]:
