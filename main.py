@@ -40,7 +40,7 @@ def parse_tenants(df) -> List[Tenant]:
     return tenants
 
 
-def main(tenants: List[Tenant], cache_scheme: CacheScheme, backingstore_scheme: BackingStoreScheme):
+def main(tenants: List[Tenant], cache_scheme: CacheScheme, backingstore_scheme: BackingStoreScheme, dst: str):
     svr = CacheServer(cache_scheme=cache_scheme,
                       backingstore_scheme=backingstore_scheme)
     threads = []
@@ -59,7 +59,6 @@ def main(tenants: List[Tenant], cache_scheme: CacheScheme, backingstore_scheme: 
         else:
             df = pd.concat([df, tnt_df], ignore_index=True)
 
-    dst = f"results/lat{backingstore_scheme.latency_mu}_cr{cache_scheme.cache_ratio}/{get_trace_name(trace_file)}_{svr.cache_client.allocator.name}.csv"
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     df.to_csv(dst, index=False)
 
@@ -80,7 +79,7 @@ if __name__ == "__main__":
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant2_time0-10_iter0.csv"
     # trace_file = "data/trace/selected_data_tenant3_time0-900_iter0.csv"
     # trace_file = "data/trace/selected_data_tenant10_time0-900_iter0.csv"
-    trace_file = "data/trace/selected_data_tenant2_time0-900_iter0.csv"
+    trace_file = "data/trace/selected_data_tenant2_time0-900_iter1.csv"
     # trace_file = "/home/yunchi/582/resalloc/data/trace/selected_data_tenant50_time0-900_iter0.csv"
     latency_sigma = 0
     for latency_mu in [3]:
@@ -98,4 +97,5 @@ if __name__ == "__main__":
                 bscheme = BackingStoreScheme(
                     latency_mu=latency_mu,
                     latency_sigma=latency_sigma)
-                main(tenants, cscheme, bscheme)
+                dst = f"results/lat{latency_mu}_cr{cache_ratio}/{get_trace_name(trace_file)}_{allocator_class.__name__}.csv"
+                main(tenants, cscheme, bscheme, dst)
